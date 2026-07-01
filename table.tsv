@@ -1,0 +1,24 @@
+Task	What is Missing / Wrong	What is Needed
+1	Indentation inside BEGIN…END (minor)	No major issues – correct ✅
+2	Invalid CHOOSE; SET with quotes; no actual variables; READ TWO NYMBER typo; hardcoded sum	Read two numbers using READ; store in variables; compute sum with SET; display the sum
+3	CHOOSE not valid; SET RADIUS TO 2 overwrites input; wrong SET Pi To Pi=3.14; displays literals instead of computed value	Read radius; set PI = 3.14; compute PERIMETER = 2 * PI * RADIUS; display the result
+4	CHOOSE; hardcoded days and day names; no conversion formula; displays literal "48"	Read number of days; convert to hours (DAYS * 24); display the calculated total hours
+5	Uses >= instead of pseudocode GREATER THAN OR EQUAL TO (if strict); missing indentation	Replace >= with GREATER THAN OR EQUAL TO (optional but recommended)
+6	Reads NAME instead of number; condition NUMBER GREATER THEN 0 (typo, wrong variable); no check for zero	Read a numeric VAL; use IF VAL GREATER THAN 0 THEN…ELSE IF VAL LESS THAN 0 THEN…ELSE…
+7	Reads NUMBER then uses SPEED (undefined); GRATER typo; missing THEN	Read SPEED; write IF SPEED GREATER THAN 120 THEN…ELSE…
+8	Reads three numbers (extra NUMBER); missing THEN after condition; displays "LOSE" instead of "Loss"	Remove extra read; add THEN; change "LOSE" to "Loss"
+9	Reads only one number (NUMBERT); condition refers to two numbers; missing THEN; unclosed string	Read two numbers (NUM1, NUM2); use IF NUM1 EQUALS NUM2 THEN
+10	No specific reads for HAS_ATTENDANCE and HAS_ASSIGNMENT; uses = instead of EQUALS; missing THEN; unclosed string	Read both text inputs; use IF HAS_ATTENDANCE EQUALS "YES" AND HAS_ASSIGNMENT EQUALS "YES" THEN
+11	Variable names with spaces (STUDENT GPA); condition has extra if; missing THEN; unclosed string	Use GPA and INCOME; write IF GPA GREATER THAN OR EQUAL TO 3.5 OR INCOME LESS THAN 20000 THEN
+12	Reads NUMBER ITEM (should be SCORE); condition written as English sentence; missing THEN	Read SCORE; use IF SCORE GREATER THAN OR EQUAL TO 0 AND SCORE LESS THAN OR EQUAL TO 100 THEN
+13	Three separate IFs with only one END IF; missing THEN; typos (DIAPLAY, SENOT); no ELSE IF	Use ELSE IF structure: IF AGE <12 THEN…ELSE IF AGE ≤60 THEN…ELSE…
+14	Reads SYSTEM_BROKEN but condition uses IS_SYSTEM_BROKEN; redundant EQUALS TRUE; missing THEN and ELSE	Read IS_SYSTEM_BROKEN (Boolean); write IF NOT IS_SYSTEM_BROKEN THEN…ELSE…
+15	Correct ✅ (uses REPEAT FROM I=1 TO 10 and DISPLAY I)	–
+16	SET SEQUARE with no value; loop displays literal "SEQUARE"	Inside loop, set SQUARE = I * I and display SQUARE
+17	SET X-5 is invalid syntax	Use SET X TO X - 5
+18	Only loop header and READ SCORE; no total variable, no accumulation, no display, loop should go to 5 not 10	Initialize TOTAL = 0; loop I=1 TO 5; read score, add to total; after loop display total
+19	Empty (no code)	Implement REPEAT WHILE to keep reading a number until it is positive
+20	Empty	Set BALANCE = 500; loop while BALANCE > 0; read withdrawal amount; deduct; display remaining
+21	Empty	Set TOTAL_COST = 0 and PRICE = -1; loop while PRICE ≠ 0; read price; if not zero, add to total; display total
+22	Empty	Read a positive base number; loop while number < 1000; display number; double it
+23–25	Not attempted	Complete as per requirements: average of N inputs (23), guessing game (24), BMI calculator (25)

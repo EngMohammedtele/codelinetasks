@@ -1,0 +1,820 @@
+task 1
+
+Microsoft Windows [Version 10.0.26200.8655]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Mohammed Said> mkdir df3
+
+C:\Users\Mohammed Said>cd df3
+
+C:\Users\Mohammed Said\df3> git init
+Initialized empty Git repository in C:/Users/Mohammed Said/df3/.git/
+
+C:\Users\Mohammed Said\df3> git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\df3> type nul > index.html
+
+C:\Users\Mohammed Said\df3>type nul > style.css
+
+C:\Users\Mohammed Said\df3>type nul > svript.js
+
+C:\Users\Mohammed Said\df3>git add -A
+
+C:\Users\Mohammed Said\df3> gut status
+'gut' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\df3>git commit -m "Initial commit"
+[master (root-commit) 8d71f61] Initial commit
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 style.css
+ create mode 100644 svript.js
+
+C:\Users\Mohammed Said\df3>git branch
+* master
+
+C:\Users\Mohammed Said\df3>git branch feature-branch
+
+C:\Users\Mohammed Said\df3>git switch feature-branch
+Switched to branch 'feature-branch'
+
+C:\Users\Mohammed Said\df3>git add  -A
+
+C:\Users\Mohammed Said\df3> git status
+On branch feature-branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   style.css
+
+
+C:\Users\Mohammed Said\df3>git commit -m "Added new feature files"
+[feature-branch d2fe79c] Added new feature files
+ 1 file changed, 1 insertion(+)
+
+C:\Users\Mohammed Said\df3>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\df3>git switch master
+Switched to branch 'master'
+
+C:\Users\Mohammed Said\df3>git merge feature-branch
+Updating 8d71f61..d2fe79c
+Fast-forward
+ style.css | 1 +
+ 1 file changed, 1 insertion(+)
+
+C:\Users\Mohammed Said\df3>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\df3>
+---------------------------------------------------------------------------------------
+task 2
+
+C:\Users\Mohammed Said>mkdir ew3
+
+C:\Users\Mohammed Said>cd ew3
+
+C:\Users\Mohammed Said\ew3>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/ew3/.git/
+
+C:\Users\Mohammed Said\ew3>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\ew3>git branch
+
+C:\Users\Mohammed Said\ew3>git switch feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\ew3> git switch feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\ew3>git checkout feature-branch
+error: pathspec 'feature-branch' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\ew3>git branch
+
+C:\Users\Mohammed Said\ew3> tupe nul >index.html
+'tupe' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\ew3>type nul >index.html
+
+C:\Users\Mohammed Said\ew3>type nul > style.css
+
+C:\Users\Mohammed Said\ew3>type nul > script.js
+
+C:\Users\Mohammed Said\ew3> git add -A
+
+C:\Users\Mohammed Said\ew3> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   script.js
+        new file:   style.css
+
+
+C:\Users\Mohammed Said\ew3>git commit -m "Updated feature branch files"
+[master (root-commit) 336f162] Updated feature branch files
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\Users\Mohammed Said\ew3>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\ew3>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\ew3>git merge feature-branch
+merge: feature-branch - not something we can merge
+
+C:\Users\Mohammed Said\ew3>git log --oneline --graph
+* 336f162 (HEAD -> master) Updated feature branch files
+
+C:\Users\Mohammed Said\ew3>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\ew3>
+---------------------------------------------------------------
+task 3
+
+Microsoft Windows [Version 10.0.26200.8655]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Mohammed Said>cd my-project
+The system cannot find the path specified.
+
+C:\Users\Mohammed Said> mkdir my-project
+
+C:\Users\Mohammed Said> cd my-project
+
+C:\Users\Mohammed Said\my-project>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/my-project/.git/
+
+C:\Users\Mohammed Said\my-project>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\my-project>git branch
+
+C:\Users\Mohammed Said\my-project>git switch master
+fatal: invalid reference: master
+
+C:\Users\Mohammed Said\my-project>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\my-project>git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\my-project>git branch -d feature-branch
+error: branch 'feature-branch' not found
+
+C:\Users\Mohammed Said\my-project> git branch -d
+fatal: branch name required
+
+C:\Users\Mohammed Said\my-project> git branch
+
+C:\Users\Mohammed Said\my-project> git statu
+git: 'statu' is not a git command. See 'git --help'.
+
+The most similar commands are
+        status
+        stage
+        stash
+
+C:\Users\Mohammed Said\my-project> git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\my-project>
+---------------------------------------------------------------------
+task 4
+
+:\Users\Mohammed Said\my-project>cd ..
+
+C:\Users\Mohammed Said>mkdir bv5
+
+C:\Users\Mohammed Said>cd bv5
+
+C:\Users\Mohammed Said\bv5>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/bv5/.git/
+
+C:\Users\Mohammed Said\bv5>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\bv5>git branch
+
+C:\Users\Mohammed Said\bv5>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\bv5>
+--------------------------------------------------------------
+task 5
+
+C:\Users\Mohammed Said\bv5>
+C:\Users\Mohammed Said\bv5>cd ..
+
+C:\Users\Mohammed Said>mkdir ed3
+
+C:\Users\Mohammed Said>cd ed3
+
+C:\Users\Mohammed Said\ed3>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/ed3/.git/
+
+C:\Users\Mohammed Said\ed3>get status
+'get' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\ed3>git branch
+
+C:\Users\Mohammed Said\ed3>git switch feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\ed3>git checkout feature-branch
+error: pathspec 'feature-branch' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\ed3>git branch
+
+C:\Users\Mohammed Said\ed3> tupe nul > index.html
+'tupe' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\ed3>type nul > index.html
+
+C:\Users\Mohammed Said\ed3>type nul > style.css
+
+C:\Users\Mohammed Said\ed3>type nul > script.js
+
+C:\Users\Mohammed Said\ed3> git add -A
+
+C:\Users\Mohammed Said\ed3> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   script.js
+        new file:   style.css
+
+
+C:\Users\Mohammed Said\ed3> git  restore --staged.
+error: unknown option `staged.'
+usage: git restore [<options>] [--source=<branch>] <file>...
+
+    -s, --[no-]source <tree-ish>
+                          which tree-ish to checkout from
+    -S, --[no-]staged     restore the index
+    -W, --[no-]worktree   restore the working tree (default)
+    --[no-]ignore-unmerged
+                          ignore unmerged entries
+    --[no-]overlay        use overlay mode
+    -q, --[no-]quiet      suppress progress reporting
+    --[no-]recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --[no-]progress       force progress reporting
+    -m, --[no-]merge      perform a 3-way merge with the new branch
+    --[no-]conflict <style>
+                          conflict style (merge, diff3, or zdiff3)
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --[no-]patch      select hunks interactively
+    -U, --unified <n>     generate diffs with <n> lines context
+    --inter-hunk-context <n>
+                          show context between diff hunks up to the specified number of lines
+    --[no-]ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --[no-]pathspec-from-file <file>
+                          read pathspec from file
+    --[no-]pathspec-file-nul
+                          with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+C:\Users\Mohammed Said\ed3> git add style.css
+
+C:\Users\Mohammed Said\ed3> git commit -m
+error: switch `m' requires a value
+
+C:\Users\Mohammed Said\ed3>it commit -m "Add team page"
+'it' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\ed3> commit -m "Add team page"
+'commit' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\ed3> git commit -m "Add team page"
+
+C:\Users\Mohammed Said\ed3>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\ed3>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\ed3>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   script.js
+        new file:   style.css
+
+
+C:\Users\Mohammed Said\ed3>git log --oneline --graph
+fatal: your current branch 'master' does not have any commits yet
+
+C:\Users\Mohammed Said\ed3>git switch master
+fatal: invalid reference: master
+
+C:\Users\Mohammed Said\ed3> echo hello > index.html
+
+C:\Users\Mohammed Said\ed3>echo body{} > style.css
+
+C:\Users\Mohammed Said\ed3>echo console.log("hi"); > script.js
+
+C:\Users\Mohammed Said\ed3>git add .
+
+C:\Users\Mohammed Said\ed3>git commit -m "Initial commit"
+[master (root-commit) 12a56d4] Initial commit
+ 3 files changed, 3 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\Users\Mohammed Said\ed3>git log --oneline --graph
+* 12a56d4 (HEAD -> master) Initial commit
+
+C:\Users\Mohammed Said\ed3>git branch -M master
+
+C:\Users\Mohammed Said\ed3>git switch -c feature-branch
+Switched to a new branch 'feature-branch'
+
+C:\Users\Mohammed Said\ed3> git branch
+* feature-branch
+  master
+
+C:\Users\Mohammed Said\ed3>git status
+On branch feature-branch
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\ed3>
+------------------------------------------------------------------
+task 6
+Microsoft Windows [Version 10.0.26200.8655]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Mohammed Said> mkdir hy6
+
+C:\Users\Mohammed Said> cd hy6
+
+C:\Users\Mohammed Said\hy6>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/hy6/.git/
+
+C:\Users\Mohammed Said\hy6>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\hy6> git branch
+
+C:\Users\Mohammed Said\hy6>git switch feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\hy6>git branch feature-branch
+fatal: not a valid object name: 'master'
+
+C:\Users\Mohammed Said\hy6>git branch
+
+C:\Users\Mohammed Said\hy6> type nul > index.html
+
+C:\Users\Mohammed Said\hy6> type nul > hji.nm
+
+C:\Users\Mohammed Said\hy6> tupe nul > script.js
+'tupe' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\hy6> type nul > script.js
+
+C:\Users\Mohammed Said\hy6>git add -A
+
+C:\Users\Mohammed Said\hy6> git commit -m "hello"
+[master (root-commit) d6fdf1c] hello
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hji.nm
+ create mode 100644 index.html
+ create mode 100644 script.js
+
+C:\Users\Mohammed Said\hy6> git branch feature-branch
+
+C:\Users\Mohammed Said\hy6> git switch feature-branch
+Switched to branch 'feature-branch'
+
+C:\Users\Mohammed Said\hy6> type nul > mo.gd
+
+C:\Users\Mohammed Said\hy6> git add -A
+
+C:\Users\Mohammed Said\hy6> git commit -m "hi"
+[feature-branch cd05303] hi
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mo.gd
+
+C:\Users\Mohammed Said\hy6> git switch master
+Switched to branch 'master'
+
+C:\Users\Mohammed Said\hy6> git merge
+fatal: No remote for the current branch.
+
+C:\Users\Mohammed Said\hy6> git merge feature-branch
+Updating d6fdf1c..cd05303
+Fast-forward
+ mo.gd | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mo.gd
+
+C:\Users\Mohammed Said\hy6> git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\hy6> git branch -d feature-branch
+Deleted branch feature-branch (was cd05303).
+
+C:\Users\Mohammed Said\hy6>
+--------------------------------------------------------------
+task 7
+
+C:\Users\Mohammed Said\hy6> cd ..
+
+C:\Users\Mohammed Said> mkdir hi
+
+C:\Users\Mohammed Said>cd hi
+
+C:\Users\Mohammed Said\hi> git init
+Initialized empty Git repository in C:/Users/Mohammed Said/hi/.git/
+
+C:\Users\Mohammed Said\hi>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\hi> git branch
+
+C:\Users\Mohammed Said\hi> git commit -m feature-branch.
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\hi>
+C:\Users\Mohammed Said\hi> type nul > index.html
+
+C:\Users\Mohammed Said\hi> type nul >  style.css
+
+C:\Users\Mohammed Said\hi> type nul >script.js
+
+C:\Users\Mohammed Said\hi> git add -A
+
+C:\Users\Mohammed Said\hi> git commit -m "said"
+[master (root-commit) 20f966f] said
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\Users\Mohammed Said\hi> git branch feature-branch
+
+C:\Users\Mohammed Said\hi> git switched  feature-branch
+git: 'switched' is not a git command. See 'git --help'.
+
+C:\Users\Mohammed Said\hi> git switch  feature-branchch
+fatal: invalid reference: feature-branchch
+
+C:\Users\Mohammed Said\hi> git switch  feature-branch
+Switched to branch 'feature-branch'
+
+C:\Users\Mohammed Said\hi> type nul > mo.gd
+
+C:\Users\Mohammed Said\hi> git merge feature-branch
+Already up to date.
+
+C:\Users\Mohammed Said\hi> get status
+'get' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\hi> git status
+On branch feature-branch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        mo.gd
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\hi>
+
+---------------------------------------------------------------------------------
+
+
+task 8
+
+C:\Users\Mohammed Said\hi> cd ..
+
+C:\Users\Mohammed Said> mkdir hola
+
+C:\Users\Mohammed Said> cd  hola
+
+C:\Users\Mohammed Said\hola>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/hola/.git/
+
+C:\Users\Mohammed Said\hola> git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\hola> type nul > index.ht
+
+C:\Users\Mohammed Said\hola> type nul > style.css
+
+C:\Users\Mohammed Said\hola> type nul > script.js
+
+C:\Users\Mohammed Said\hola> git add -A
+
+C:\Users\Mohammed Said\hola> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.ht
+        new file:   script.js
+        new file:   style.css
+
+
+C:\Users\Mohammed Said\hola> git branch
+
+C:\Users\Mohammed Said\hola> git branch main
+fatal: not a valid object name: 'master'
+
+C:\Users\Mohammed Said\hola> git commit -m "main"
+[master (root-commit) a3f2e6a] main
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.ht
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\Users\Mohammed Said\hola> git switch feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\hola> git commit -m "how"
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\hola> git switch feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\hola>git branch feature-branch
+
+C:\Users\Mohammed Said\hola> git switch feature-branch
+Switched to branch 'feature-branch'
+
+C:\Users\Mohammed Said\hola>git merge feature-branch
+Already up to date.
+
+C:\Users\Mohammed Said\hola>git status
+On branch feature-branch
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\hola> git commit -m "mohammedbest"
+On branch feature-branch
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\hola>git log --oneline --graph
+* a3f2e6a (HEAD -> feature-branch, master) main
+
+C:\Users\Mohammed Said\hola>git statu
+git: 'statu' is not a git command. See 'git --help'.
+
+The most similar commands are
+        status
+        stage
+        stash
+
+C:\Users\Mohammed Said\hola>
+------------------------------------------------------------
+task 9
+
+C:\Users\Mohammed Said> mkdir nine
+
+C:\Users\Mohammed Said> cd nine
+
+C:\Users\Mohammed Said\nine>git init
+Initialized empty Git repository in C:/Users/Mohammed Said/nine/.git/
+
+C:\Users\Mohammed Said\nine>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\nine> type nul > index.html
+
+C:\Users\Mohammed Said\nine> type nul > style.css
+
+C:\Users\Mohammed Said\nine> type nul > script.js
+
+C:\Users\Mohammed Said\nine> git add -A
+
+C:\Users\Mohammed Said\nine> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   script.js
+        new file:   style.css
+
+
+C:\Users\Mohammed Said\nine> git commit -m "eleven"
+[master (root-commit) 6307388] eleven
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\Users\Mohammed Said\nine>
+C:\Users\Mohammed Said\nine>git branch
+* master
+
+C:\Users\Mohammed Said\nine>git branch feature-branch
+
+C:\Users\Mohammed Said\nine> echo hello > style.css
+
+C:\Users\Mohammed Said\nine> git add style.css
+
+C:\Users\Mohammed Said\nine> git commit -m "why"
+[master d04b781] why
+ 1 file changed, 1 insertion(+)
+
+C:\Users\Mohammed Said\nine>git switch main
+fatal: invalid reference: main
+
+C:\Users\Mohammed Said\nine>git branch master
+fatal: a branch named 'master' already exists
+
+C:\Users\Mohammed Said\nine> git switch master
+Already on 'master'
+
+C:\Users\Mohammed Said\nine> git merge feature-branch
+Already up to date.
+
+C:\Users\Mohammed Said\nine> git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\nine> git log --onlune -graph
+fatal: unrecognized argument: --onlune
+
+C:\Users\Mohammed Said\nine> git log --online -graph
+fatal: unrecognized argument: --online
+
+C:\Users\Mohammed Said\nine> git log --oneline -graph
+fatal: unrecognized argument: -graph
+
+C:\Users\Mohammed Said\nine> git log --oneline --graph
+* d04b781 (HEAD -> master) why
+* 6307388 (feature-branch) eleven
+
+C:\Users\Mohammed Said\nine>
+--------------------------------------------------------------------------
+task 10
+
+C:\Users\Mohammed Said\nine> cd ..
+
+C:\Users\Mohammed Said>mkdir love
+
+C:\Users\Mohammed Said> cd love
+
+C:\Users\Mohammed Said\love> git init
+Initialized empty Git repository in C:/Users/Mohammed Said/love/.git/
+
+C:\Users\Mohammed Said\love> git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\love> type nul > index.html
+
+C:\Users\Mohammed Said\love> type nul > style.css
+
+C:\Users\Mohammed Said\love> type nul > script.js
+
+C:\Users\Mohammed Said\love> git add -A
+
+C:\Users\Mohammed Said\love> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   script.js
+        new file:   style.css
+
+
+C:\Users\Mohammed Said\love> git branch
+
+C:\Users\Mohammed Said\love> gir branch feature-branch
+'gir' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\love> git branch feature-branch
+fatal: not a valid object name: 'master'
+
+C:\Users\Mohammed Said\love> git switch  feature-branch
+fatal: invalid reference: feature-branch
+
+C:\Users\Mohammed Said\love> git branch
+
+C:\Users\Mohammed Said\love> git commit -m "good"
+[master (root-commit) 0764440] good
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+C:\Users\Mohammed Said\love> git branch feature-branch
+
+C:\Users\Mohammed Said\love> git switch feature-branch
+Switched to branch 'feature-branch'
+
+C:\Users\Mohammed Said\love> echo loveyou > style.css
+
+C:\Users\Mohammed Said\love> git commit -m "what"
+On branch feature-branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\love> git branch main
+
+C:\Users\Mohammed Said\love> git switch main
+M       style.css
+Switched to branch 'main'
+
+C:\Users\Mohammed Said\love> git merge feature-branch
+Already up to date.
+
+C:\Users\Mohammed Said\love>git log --oneline --graph
+* 0764440 (HEAD -> main, master, feature-branch) good
+
+C:\Users\Mohammed Said\love>

@@ -1,0 +1,1201 @@
+Microsoft Windows [Version 10.0.26200.8655]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Mohammed Said> mkdir whispering-woods-chronicle1
+
+C:\Users\Mohammed Said> ca whispering-woods-chronicle1
+'ca' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said> cd whispering-woods-chronicle1
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git init
+Initialized empty Git repository in C:/Users/Mohammed Said/whispering-woods-chronicle1/.git/
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   chapter1.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git reet chapter1.txt
+git: 'reet' is not a git command. See 'git --help'.
+
+The most similar command is
+        reset
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git reset chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   chapter1.txt
+
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Initial draft of Chapter 1 opening"
+[master (root-commit) 7715614] Initial draft of Chapter 1 opening
+ 1 file changed, 1 insertion(+)
+ create mode 100644 chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log
+commit 7715614ae57dded420b1d002a8af74ac1293c828 (HEAD -> master)
+Author: mohammed said <mohed.said77@gmail.com>
+Date:   Thu Jun 25 14:21:21 2026 +0400
+
+    Initial draft of Chapter 1 opening
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>type nul  > characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        characters.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add character bio for Elara"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        characters.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log --oneline
+7715614 (HEAD -> master) Initial draft of Chapter 1 opening
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>  git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        characters.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git diff
+diff --git a/chapter1.txt b/chapter1.txt
+index 16c5713..b984206 100644
+--- a/chapter1.txt
++++ b/chapter1.txt
+@@ -1 +1,2 @@
+-LLM-generated paragraph
+\ No newline at end of file
++LLM-generated paragraph
++new paragraphs to the existing content
+\ No newline at end of file
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Expand Chapter 1 with Elara's decision"
+[master 938ab73] Expand Chapter 1 with Elara's decision
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch
+* master
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git branch add-companion
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout add-companion
+Switched to branch 'add-companion'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git branch
+* add-companion
+  master
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Introduce Shadow, the wolf companion"
+[add-companion 016dff1] Introduce Shadow, the wolf companion
+ 1 file changed, 1 insertion(+)
+ create mode 100644 characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+Switched to branch 'master'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add characters.txt
+fatal: pathspec 'characters.txt' did not match any files
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        characters.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   characters.txt
+
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Introduce Shadow, the wolf companion"
+[master f9feb6b] Introduce Shadow, the wolf companion
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+M       characters.txt
+Already on 'master'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch
+  add-companion
+* master
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Chapter 1: Elara enters the Whispering Woods"
+[master 2c3f2ea] Chapter 1: Elara enters the Whispering Woods
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git merge add-companion
+error: Your local changes to the following files would be overwritten by merge:
+        characters.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Merge with strategy ort failed.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m  add-companion
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   characters.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m  "add-companion"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   characters.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log --oneline --graph
+* 2c3f2ea (HEAD -> master) Chapter 1: Elara enters the Whispering Woods
+* f9feb6b Introduce Shadow, the wolf companion
+* 938ab73 Expand Chapter 1 with Elara's decision
+* 7715614 Initial draft of Chapter 1 opening
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>type nul > chapter2.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+        modified:   characters.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter2.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   chapter2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+        modified:   characters.txt
+
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git reset chapter2.txt
+Unstaged changes after reset:
+M       chapter1.txt
+M       characters.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout --chapter2.txt
+error: unknown option `chapter2.txt'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --[no-]guess          second guess 'git checkout <no-such-branch>' (default)
+    --[no-]overlay        use overlay mode (default)
+    --[no-]auto-advance   auto advance to the next file when selecting hunks interactively
+    -q, --[no-]quiet      suppress progress reporting
+    --[no-]recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --[no-]progress       force progress reporting
+    -m, --[no-]merge      perform a 3-way merge with the new branch
+    --[no-]conflict <style>
+                          conflict style (merge, diff3, or zdiff3)
+    -d, --[no-]detach     detach HEAD at named commit
+    -t, --[no-]track[=(direct|inherit)]
+                          set branch tracking configuration
+    -f, --[no-]force      force checkout (throw away local modifications)
+    --[no-]orphan <new-branch>
+                          new unborn branch
+    --[no-]overwrite-ignore
+                          update ignored files (default)
+    --[no-]ignore-other-worktrees
+                          do not check if another worktree is using this branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --[no-]patch      select hunks interactively
+    -U, --unified <n>     generate diffs with <n> lines context
+    --inter-hunk-context <n>
+                          show context between diff hunks up to the specified number of lines
+    --[no-]ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --[no-]pathspec-from-file <file>
+                          read pathspec from file
+    --[no-]pathspec-file-nul
+                          with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git checkout chapter2.txt
+error: pathspec 'chapter2.txt' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>\ git commit -m "ch2"
+'\' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > .gitignore
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m "hi"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+        modified:   characters.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add .gitignore
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add .gitignore to exclude personal notes"
+[master 8494786] Add .gitignore to exclude personal notes
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > my_story_notes.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+        modified:   characters.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Chapter 1
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+        modified:   characters.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit --amend
+[master 8d9c297] Add .gitignore to exclude personal notes
+ Date: Thu Jun 25 14:44:04 2026 +0400
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit --amend
+[master b829b9b] Add .gitignore to exclude personal notes
+ Date: Thu Jun 25 14:44:04 2026 +0400
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit --amend -m "teh"
+[master 85d0236] teh
+ Date: Thu Jun 25 14:44:04 2026 +0400
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log -1
+commit 85d0236d75c841e355993b94a6ec846788d21078 (HEAD -> master)
+Author: mohammed said <mohed.said77@gmail.com>
+Date:   Thu Jun 25 14:44:04 2026 +0400
+
+    teh
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch tragic-ending
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout tragic-ending
+M       characters.txt
+Switched to branch 'tragic-ending'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add happy ending"
+[tragic-ending 211ec5a] Add happy ending
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git branch tragic-ending
+fatal: a branch named 'tragic-ending' already exists
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > tragic-ending
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git branch tragic-ending
+fatal: a branch named 'tragic-ending' already exists
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout tragic-ending
+M       characters.txt
+Already on 'tragic-ending'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add tragic ending"
+[tragic-ending 4a6d394] Add tragic ending
+ 1 file changed, 1 insertion(+)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+M       characters.txt
+Switched to branch 'master'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>: git merge tragic-ending
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout tragic-ending
+error: The following untracked working tree files would be overwritten by checkout:
+        ending.txt
+Please move or remove them before you switch branches.
+Aborting
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add happy ending"
+[master 61f9e83] Add happy ending
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch tragic-ending
+fatal: a branch named 'tragic-ending' already exists
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add happy ending98"
+[master 882c2ac] Add happy ending98
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+M       characters.txt
+Already on 'master'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch tragic-ending
+fatal: a branch named 'tragic-ending' already exists
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git switch tragic-ending
+M       characters.txt
+Switched to branch 'tragic-ending'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add happy ending9889"
+[tragic-ending 9a004c6] Add happy ending9889
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+M       characters.txt
+Switched to branch 'master'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git merge tragic-ending
+Auto-merging ending.txt
+CONFLICT (add/add): Merge conflict in ending.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add ending.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Add happy ending98"
+[master 1d5fe7e] Add happy ending98
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   characters.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        tragic-ending
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Resolve ending conflict,choosing [your choice]"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   characters.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        tragic-ending
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch
+  add-companion
+* master
+  tragic-ending
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git tag -a v1.0 -m "First complete version of TheWhispering Woods Chronicle"
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git tag
+v1.0
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git show v1.0
+tag v1.0
+Tagger: mohammed said <mohed.said77@gmail.com>
+Date:   Thu Jun 25 15:08:25 2026 +0400
+
+First complete version of TheWhispering Woods Chronicle
+
+commit 1d5fe7e2ed538168888cd452278f63fe5ffed917 (HEAD -> master, tag: v1.0)
+Merge: 882c2ac 9a004c6
+Author: mohammed said <mohed.said77@gmail.com>
+Date:   Thu Jun 25 15:05:13 2026 +0400
+
+    Add happy ending98
+
+diff --cc ending.txt
+index df8d4d5,5bfc18c..74026f4
+--- a/ending.txt
++++ b/ending.txt
+@@@ -1,4 -1,1 +1,4 @@@
+ -modiHBJBHJBHJJUBHJHJBHJBHJHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHfying
+++<<<<<<< HEAD
+ +dfdfdxfgcfg cfgtragic ending gblalaldddddddddddddddtdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddaallabababcfgftab
+-
+- gc
+++modiHBJBHJBHJJUBHJHJBHJBHJHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHfying
+ +
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > whispering-woods-remote.gi
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > whispering-woods-remote.git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> cd ..
+
+C:\Users\Mohammed Said>mkdir  whispering-woods-remote.git
+
+C:\Users\Mohammed Said>cd  whispering-woods-remote.git
+
+C:\Users\Mohammed Said\whispering-woods-remote.git>git init --bare
+Initialized empty Git repository in C:/Users/Mohammed Said/whispering-woods-remote.git/
+
+C:\Users\Mohammed Said\whispering-woods-remote.git> cd ..
+
+C:\Users\Mohammed Said>cd r whispering-woods-chronicle1
+The system cannot find the path specified.
+
+C:\Users\Mohammed Said> cd  whispering-woods-chronicle1
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git remote add origin ../whispering-woods-remote.git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git remote -v
+origin  ../whispering-woods-remote.git (fetch)
+origin  ../whispering-woods-remote.git (push)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git push -u origin master
+Enumerating objects: 33, done.
+Counting objects: 100% (33/33), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (26/26), done.
+Writing objects: 100% (33/33), 2.73 KiB | 1.37 MiB/s, done.
+Total 33 (delta 11), reused 0 (delta 0), pack-reused 0 (from 0)
+To ../whispering-woods-remote.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git push --tags
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 195 bytes | 195.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To ../whispering-woods-remote.git
+ * [new tag]         v1.0 -> v1.0
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch
+  add-companion
+* master
+  tragic-ending
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > magical_items.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add magical_items.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Introduce Orb of Fleeting Moments"
+[master 8d2b5f1] Introduce Orb of Fleeting Moments
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 magical_items.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git branch side-quest
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout side-quest
+M       characters.txt
+Switched to branch 'side-quest'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git cherry-pick master
+On branch side-quest
+You are currently cherry-picking commit 8d2b5f1.
+  (all conflicts fixed: run "git cherry-pick --continue")
+  (use "git cherry-pick --skip" to skip this patch)
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   characters.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        tragic-ending
+        whispering-woods-remote.gi
+        whispering-woods-remote.git
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The previous cherry-pick is now empty, possibly due to conflict resolution.
+If you wish to commit it anyway, use:
+
+    git commit --allow-empty
+
+Otherwise, please use 'git cherry-pick --skip'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git switch mster
+fatal: invalid reference: mster
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git switch master
+fatal: cannot switch branch while cherry-picking
+Consider "git cherry-pick --quit" or "git worktree add".
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git branch
+  add-companion
+  master
+* side-quest
+  tragic-ending
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git status
+On branch side-quest
+You are currently cherry-picking commit 8d2b5f1.
+  (all conflicts fixed: run "git cherry-pick --continue")
+  (use "git cherry-pick --skip" to skip this patch)
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   characters.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        tragic-ending
+        whispering-woods-remote.gi
+        whispering-woods-remote.git
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > magical_items.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m "hola"
+[side-quest 67e9934] hola
+ Date: Thu Jun 25 15:17:53 2026 +0400
+ 4 files changed, 3 insertions(+)
+ create mode 100644 tragic-ending
+ create mode 100644 whispering-woods-remote.gi
+ create mode 100644 whispering-woods-remote.git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git reset --hard HEAD~1
+HEAD is now at 1d5fe7e Add happy ending98
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>type nul > chapter3_ideas.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "WIP: villain draft"
+[master 1f72c0a] WIP: villain draft
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 chapter3_ideas.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "WIP:clue for Elara"
+[master 2dbaee9] WIP:clue for Elara
+ 1 file changed, 2 insertions(+)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "WIP:talking squirrel?"
+[master 8208f99] WIP:talking squirrel?
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git rebase -i HEAD~3
+Successfully rebased and updated refs/heads/master.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m "Consolidate initial plot ideas for Chapter 3"
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log -1
+commit 8208f99057074374e135aaa1c94bd3c16a48722f (HEAD -> master)
+Author: mohammed said <mohed.said77@gmail.com>
+Date:   Thu Jun 25 15:28:31 2026 +0400
+
+    WIP:talking squirrel?
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log --oneline -3
+8208f99 (HEAD -> master) WIP:talking squirrel?
+2dbaee9 WIP:clue for Elara
+1f72c0a WIP: villain draft
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > hidden_library.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add hidden_library.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Introduce hidden library subplot"
+[master d2092d1] Introduce hidden library subplot
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hidden_library.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git reset --hard HEAD~1
+HEAD is now at 8208f99 WIP:talking squirrel?
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git reflog
+8208f99 (HEAD -> master) HEAD@{0}: reset: moving to HEAD~1
+d2092d1 HEAD@{1}: commit: Introduce hidden library subplot
+8208f99 (HEAD -> master) HEAD@{2}: rebase (finish): returning to refs/heads/master
+8208f99 (HEAD -> master) HEAD@{3}: rebase (start): checkout HEAD~3
+8208f99 (HEAD -> master) HEAD@{4}: commit: WIP:talking squirrel?
+2dbaee9 HEAD@{5}: commit: WIP:clue for Elara
+1f72c0a HEAD@{6}: commit: WIP: villain draft
+1d5fe7e (tag: v1.0, origin/master) HEAD@{7}: reset: moving to HEAD~1
+8d2b5f1 HEAD@{8}: checkout: moving from side-quest to master
+67e9934 (side-quest) HEAD@{9}: commit (cherry-pick): hola
+8d2b5f1 HEAD@{10}: checkout: moving from master to side-quest
+8d2b5f1 HEAD@{11}: commit: Introduce Orb of Fleeting Moments
+1d5fe7e (tag: v1.0, origin/master) HEAD@{12}: commit (merge): Add happy ending98
+882c2ac HEAD@{13}: checkout: moving from tragic-ending to master
+9a004c6 (tragic-ending) HEAD@{14}: commit: Add happy ending9889
+4a6d394 HEAD@{15}: checkout: moving from master to tragic-ending
+882c2ac HEAD@{16}: checkout: moving from master to master
+882c2ac HEAD@{17}: commit: Add happy ending98
+61f9e83 HEAD@{18}: commit: Add happy ending
+85d0236 HEAD@{19}: checkout: moving from tragic-ending to master
+4a6d394 HEAD@{20}: commit: Add tragic ending
+211ec5a HEAD@{21}: checkout: moving from tragic-ending to tragic-ending
+211ec5a HEAD@{22}: commit: Add happy ending
+85d0236 HEAD@{23}: checkout: moving from master to tragic-ending
+85d0236 HEAD@{24}: commit (amend): teh
+b829b9b HEAD@{25}: commit (amend): Add .gitignore to exclude personal notes
+8d9c297 HEAD@{26}: commit (amend): Add .gitignore to exclude personal notes
+8494786 HEAD@{27}: commit: Add .gitignore to exclude personal notes
+2c3f2ea HEAD@{28}: commit: Chapter 1: Elara enters the Whispering Woods
+f9feb6b HEAD@{29}: checkout: moving from master to master
+f9feb6b HEAD@{30}: commit: Introduce Shadow, the wolf companion
+938ab73 HEAD@{31}: checkout: moving from add-companion to master
+016dff1 (add-companion) HEAD@{32}: commit: Introduce Shadow, the wolf companion
+938ab73 HEAD@{33}: checkout: moving from master to add-companion
+938ab73 HEAD@{34}: commit: Expand Chapter 1 with Elara's decision
+7715614 HEAD@{35}: commit (initial): Initial draft of Chapter 1 opening
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git reset --hard abcdef0
+fatal: ambiguous argument 'abcdef0': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git branch recovered-idea abcdef0
+fatal: not a valid object name: 'abcdef0'
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul >  abcdef0
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git add .
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m "hola"
+[master bd5e5c8] hola
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 abcdef0
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>: git branch recovered-idea abcdef0
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git merge abcdef0
+merge: abcdef0 - not something we can merge
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git merge
+Already up to date.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > chapter4.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter4.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git stash push -m "WIP Chapter 4 scene" (The -m is good practice).
+error: pathspec ':(prefix:0)(The' did not match any file(s) known to git
+error: pathspec ':(prefix:0)good' did not match any file(s) known to git
+error: pathspec ':(prefix:0)practice).' did not match any file(s) known to git
+Did you forget to 'git add'?
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git stash push -m "WIP Chapter 4 scene"
+Saved working directory and index state On master: WIP Chapter 4 scene
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter4.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Fix typo in Chapter 1 opening"
+Enumerating objects: 65, done.
+Counting objects: 100% (65/65), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (57/57), done.
+Writing objects: 100% (65/65), done.
+Total 65 (delta 28), reused 0 (delta 0), pack-reused 0 (from 0)
+Enumerating cruft objects: 10, done.
+Traversing cruft objects: 19, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (10/10), done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+[master 178b299] Fix typo in Chapter 1 opening
+ 1 file changed, 2 insertions(+)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git stash pop
+Auto-merging chapter1.txt
+CONFLICT (content): Merge conflict in chapter1.txt
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both modified:   chapter1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter4.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git stash list
+stash@{0}: On master: WIP Chapter 4 scene
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> type nul > world_lore.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add world_lore.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Added world lore"
+U       chapter1.txt
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git reset HEAD~1
+Unstaged changes after reset:
+M       chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter4.txt
+        world_lore.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add -p world_lore.txt
+No changes.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git commit -m "Document Ancient Runes lore"
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   chapter1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter4.txt
+        world_lore.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add world_lore.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "Describe Mythical Griffin"
+[master 3313258] Describe Mythical Griffin
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 world_lore.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log -2 --oneline
+3313258 (HEAD -> master) Describe Mythical Griffin
+bd5e5c8 hola
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log --oneline
+3313258 (HEAD -> master) Describe Mythical Griffin
+bd5e5c8 hola
+8208f99 WIP:talking squirrel?
+2dbaee9 WIP:clue for Elara
+1f72c0a WIP: villain draft
+1d5fe7e (tag: v1.0, origin/master) Add happy ending98
+9a004c6 (tragic-ending) Add happy ending9889
+882c2ac Add happy ending98
+61f9e83 Add happy ending
+4a6d394 Add tragic ending
+211ec5a Add happy ending
+85d0236 teh
+2c3f2ea Chapter 1: Elara enters the Whispering Woods
+f9feb6b Introduce Shadow, the wolf companion
+938ab73 Expand Chapter 1 with Elara's decision
+7715614 Initial draft of Chapter 1 opening
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout aabbcc1
+error: pathspec 'aabbcc1' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git add chapter1.txt
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "ALT: Elara deciphers map by moonlight"
+[master 59b54e3] ALT: Elara deciphers map by moonlight
+ 1 file changed, 13 insertions(+)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git commit -m "ALT: Elara deciphers map by moonlight"
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        chapter4.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git checkout master
+Already on 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git bisect start
+status: waiting for both good and bad commits
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git bisect bad
+status: waiting for good commit(s), bad commit known
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git bisect good <old_commit_hash>
+The syntax of the command is incorrect.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1> git bisect good
+59b54e346e92d9b1810e2004f0594f94cc2f7997 was both good and bad
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>: git bisect reset
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git log --oneline -3
+59b54e3 (HEAD -> master) ALT: Elara deciphers map by moonlight
+3313258 Describe Mythical Griffin
+bd5e5c8 hola
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git rebase -i HEAD~3
+Successfully rebased and updated refs/heads/master.
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>git rebase -i aabbcc1^
+More?
+More? git log --oneline -3
+error: unknown option `oneline'
+usage: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase> | --keep-base] [<upstream> [<branch>]]
+   or: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase>] --root [<branch>]
+   or: git rebase --continue | --abort | --skip | --edit-todo
+
+    --[no-]onto <revision>
+                          rebase onto given branch instead of upstream
+    --[no-]keep-base      use the merge-base of upstream and branch as the current base
+    --no-verify           allow pre-rebase hook to run
+    --verify              opposite of --no-verify
+    -q, --[no-]quiet      be quiet. implies --no-stat
+    -v, --[no-]verbose    display a diffstat of what changed upstream
+    -n, --no-stat         do not show diffstat of what changed upstream
+    --stat                opposite of --no-stat
+    --[no-]trailer <trailer>
+                          add custom trailer(s)
+    --[no-]signoff        add a Signed-off-by trailer to each commit
+    --[no-]committer-date-is-author-date
+                          make committer date match author date
+    --[no-]reset-author-date
+                          ignore author date and use current date
+    -C <n>                passed to 'git apply'
+    --[no-]ignore-whitespace
+                          ignore changes in whitespace
+    --[no-]whitespace <action>
+                          passed to 'git apply'
+    -f, --[no-]force-rebase
+                          cherry-pick all commits, even if unchanged
+    --no-ff               cherry-pick all commits, even if unchanged
+    --ff                  opposite of --no-ff
+    --continue            continue
+    --skip                skip current patch and continue
+    --abort               abort and check out the original branch
+    --quit                abort but keep HEAD where it is
+    --edit-todo           edit the todo list during an interactive rebase
+    --show-current-patch  show the patch file being applied or merged
+    --apply               use apply strategies to rebase
+    -m, --merge           use merging strategies to rebase
+    -i, --interactive     let the user edit the list of commits to rebase
+    --[no-]rerere-autoupdate
+                          update the index with reused conflict resolution if possible
+    --empty (drop|keep|stop)
+                          how to handle commits that become empty
+    --[no-]autosquash     move commits that begin with squash!/fixup! under -i
+    --[no-]update-refs    update branches that point to commits that are being rebased
+    -S, --[no-]gpg-sign[=<key-id>]
+                          GPG-sign commits
+    --[no-]autostash      automatically stash/stash pop before and after
+    -x, --[no-]exec <exec>
+                          add exec lines after each commit of the editable list
+    -r, --[no-]rebase-merges[=<mode>]
+                          try to rebase merges instead of skipping them
+    --[no-]fork-point     use 'merge-base --fork-point' to refine upstream
+    -s, --[no-]strategy <strategy>
+                          use the given merge strategy
+    -X, --[no-]strategy-option <option>
+                          pass the argument through to the merge strategy
+    --[no-]root           rebase all reachable commits up to the root(s)
+    --[no-]reschedule-failed-exec
+                          automatically re-schedule any `exec` that fails
+    --[no-]reapply-cherry-picks
+                          apply all changes, even those already present upstream
+
+
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1>
+C:\Users\Mohammed Said\whispering-woods-chronicle1> cd ..
+
+C:\Users\Mohammed Said>cd pats-copy
+The system cannot find the path specified.
+
+C:\Users\Mohammed Said>.git pats-copy
+'.git' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Mohammed Said>git add characters.txt
+
+C:\Users\Mohammed Said>git commit -m "Pat adds Master Thorne"
+[master (root-commit) 56078ef] Pat adds Master Thorne
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 characters.txt
+
+C:\Users\Mohammed Said>git push origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+C:\Users\Mohammed Said>cd ../whispering-woods-chronicle1
+The system cannot find the path specified.
+
+C:\Users\Mohammed Said>git fetch origin
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+C:\Users\Mohammed Said> git log main..origin/master
+fatal: ambiguous argument 'main..origin/master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+C:\Users\Mohammed Said>: git log
+C:\Users\Mohammed Said>git merge orgin master
+merge: orgin - not something we can merge
+
+C:\Users\Mohammed Said>git merge origin master
+merge: origin - not something we can merge
+
+C:\Users\Mohammed Said>
+C:\Users\Mohammed Said>
+C:\Users\Mohammed Said>
+C:\Users\Mohammed Said>
+C:\Users\Mohammed Said>
+C:\Users\Mohammed Said>
+C:\Users\Mohammed Said>
