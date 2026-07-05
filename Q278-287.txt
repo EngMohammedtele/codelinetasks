@@ -1,0 +1,976 @@
+(MOHAMMED SAID)--- > (0)_(0)
+      (◕‿◕)
+      /|\
+      / \
+
+Q:278
+=================================================================
+=================================================================
+CLASS Owner
+	ATTRIBUTES
+ 	ownerID : NUMBER
+ 	ownerName : TEXT
+ 	phone : TEXT
+
+ CONSTRUCTOR(id, name)
+ 	SET ownerID TO id
+ 	SET ownerName TO name
+ END CONSTRUCTOR
+
+ METHODS
+ SHOW_OWNER()
+  	DISPLAY"ownerName"
+ END METHOD
+END CLASS
+
+
+CLASS Pet
+ ATTRIBUTES
+ 	petID : NUMBER
+ 	petName : TEXT
+ 	species : TEXT
+ 	age : NUMBER
+
+CONSTRUCTOR(id, name)
+	SET petID TO id
+	SET petName TO name
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_PET()
+ 	DISPLAY"petName"
+ END METHOD
+END CLASS
+
+
+CLASS Examination
+ ATTRIBUTES
+ diagnosis : TEXT
+ vitalSigns : TEXT
+
+
+
+
+METHODS
+ SHOW_EXAM()
+ 	DISPLAY diagnosis
+ END METHOD
+END CLASS
+
+
+CLASS Treatment
+ ATTRIBUTES
+ treatmentName : TEXT
+ cost : NUMBER
+
+
+CONSTRUCTOR(Name,cost )
+	SET treatmentName to Name
+	SET cost to cost
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_TREATMENT()
+  DISPLAY "treatmentName"
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT owner1 OF Owner
+ 		SET owner1.ownerID TO 1
+ 		SET owner1.ownerName TO "Ali"
+		CREATE OBJECT pet1 OF Pet
+ 		SET pet1.petID TO 101
+ 		SET pet1.petName TO "Kitty"
+ 		CREATE OBJECT exam1 OF Examination
+ 		SET exam1.diagnosis TO "Fever"
+ 		CREATE OBJECT treatment1 OF Treatment
+ 		SET treatment1.treatmentName TO "Medicine"
+	END
+STOP
+=============================================
+---------------------------------------------
+===============================================
+
+Q 279 :
+
+CLASS Film
+ ATTRIBUTES
+ 	filmID : NUMBER
+ 	title : TEXT
+ 	duration : NUMBER
+
+ CONSTRUCTOR(id, title, duration)
+ 	SET filmId TO id
+ 	SET title TO title
+ 	SET duration to duration
+ END CONSTRUCTOR
+
+ METHODS
+ SHOW_FILM()
+  DISPLAY title
+ END METHOD
+END CLASS
+
+
+CLASS Screen
+ ATTRIBUTES
+ screenID : NUMBER
+ capacity : NUMBER
+
+ CONSTRUCTOR(ID, capacity)
+ 	SET screenID to ID
+ 	SET capacity to capacity
+ END CONSTRUCTOR
+
+
+ METHODS
+ SHOW_SCREEN()
+  DISPLAY screenID
+ END METHOD
+END CLASS
+
+
+CLASS Showtime
+ ATTRIBUTES
+ showID : NUMBER
+ time : TEXT
+ seats : NUMBER
+
+CONSTRUCTOR(ID, time, seats)
+	SET showID to ID
+	SET time to time
+	SET seats to seats
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_TIME()
+  DISPLAY time
+ END METHOD
+END CLASS
+
+
+CLASS Ticket
+ ATTRIBUTES
+ ticketID : NUMBER
+ seatNo : NUMBER
+ price : NUMBER
+
+CONSTRUCTOR(ID, No , price)
+	SET ticketID to ID
+	SET seatNo to No
+SET price to price
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_TICKET()
+  DISPLAY seatNo
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT film1 OF Film
+ 		SET film1.filmID TO 1
+ 		SET film1.title TO "Avatar"
+ 		CREATE OBJECT screen1 OF Screen
+ 		SET screen1.screenID TO 2
+ 		CREATE OBJECT show1 OF Showtime
+ 		SET show1.showID TO 10
+ 		SET show1.time TO "8 PM"
+ 		CREATE OBJECT ticket1 OF Ticket
+ 		SET ticket1.ticketID TO 100
+ 		SET ticket1.seatNo TO 15
+	END
+STOP
+=============================================================
+--------------------------------------------------------------
+============================================================
+Q 280 :
+
+CLASS Product
+ ATTRIBUTES
+ productID : NUMBER
+ productName : TEXT
+ category : TEXT
+
+CONSTRUCTOR(ID, Name , category)
+	SET productID to ID
+	SET productName to Name
+	SET category  to category 
+END CONSTRUCTOR
+
+
+ METHODS
+ SHOW_PRODUCT()
+  DISPLAY productName
+ END METHOD
+END CLASS
+
+
+CLASS StorageBin
+ ATTRIBUTES
+ binID : NUMBER
+ quantity : NUMBER
+
+CONSTRUCTOR(ID, quantity)
+	SET binID to ID
+	SET quantity to quantity
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_BIN()
+  DISPLAY quantity
+ END METHOD
+END CLASS
+
+
+CLASS StockMovement
+ ATTRIBUTES
+ movementID : NUMBER
+ type : TEXT
+ amount : NUMBER
+
+CONSTRUCTOR ( ID , type, amount )
+	SET  movementID TO ID 
+	SET type TO  type
+	SET amount to amount 
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_MOVEMENT()
+  DISPLAY type
+ END METHOD
+END CLASS
+
+
+CLASS Vendor
+ ATTRIBUTES
+ vendorID : NUMBER
+ vendorName : TEXT
+ rating : NUMBER
+
+CONSTRUCTOR( ID , Name, rating)
+	SET vendorID TO ID
+	SET vendorName to Name
+	SET rating to rating
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_VENDOR()
+  DISPLAY vendorName
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT product1 OF Product
+ 		SET product1.productID TO 1
+ 		SET product1.productName TO "Laptop"
+ 		CREATE OBJECT bin1 OF StorageBin
+ 		SET bin1.binID TO 10
+ 		SET bin1.quantity TO 50
+ 		CREATE OBJECT movement1 OF StockMovement
+ 		SET movement1.movementID TO 101
+ 		SET movement1.type TO "IN"
+ 		CREATE OBJECT vendor1 OF Vendor
+ 		SET vendor1.vendorID TO 5
+ 		SET vendor1.vendorName TO "Ali Store"
+	END
+STOP
+
+==============================================================
+--------------------------------------------------------------
+==============================================================
+Q 281
+
+CLASS Teacher
+ ATTRIBUTES
+ teacherID : NUMBER
+ teacherName : TEXT
+ subject : TEXT
+
+CONSTRUCTOR(ID, Name, subject)
+	SET teaCherID to ID
+	SET teacherName to Name
+	SET subject to subject
+END CONTRUCTOR
+
+ METHODS
+ SHOW_TEACHER()
+  DISPLAY teacherName
+ END METHOD
+END CLASS
+
+
+CLASS Student
+ ATTRIBUTES
+ studentID : NUMBER
+ studentName : TEXT
+ grade : NUMBER
+
+CONSTRUCTOR(ID, Name, grade)
+	SET studentID to ID
+	SET studentName to Name
+	SET grade to grade 
+END CONSTRUCTOR
+
+
+ METHODS
+ SHOW_STUDENT()
+  DISPLAY studentName
+ END METHOD
+END CLASS
+
+
+CLASS Grade
+ ATTRIBUTES
+ gradeID : NUMBER
+ mark : NUMBER
+ weight : NUMBER
+
+CONSTRUCTOR( ID,mark, weight)
+	SET gradeID to ID
+	SET mark to mark
+	SET weight to weight
+END CONSTRUCTOR
+
+
+ METHODS
+ SHOW_GRADE()
+  DISPLAY mark
+ END METHOD
+END CLASS
+
+
+CLASS Classroom
+ ATTRIBUTES
+ classID : NUMBER
+ capacity : NUMBER
+
+CONSTRUCTOR( ID , capacity)
+	SET CLASSID TO ID
+	SET CAPACITY TO CAPACITY
+END CONSTRUCTOR 
+
+ METHODS
+ SHOW_CLASS()
+  DISPLAY classID
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT teacher1 OF Teacher
+ 		SET teacher1.teacherID TO 1
+ 		SET teacher1.teacherName TO "Ahmed"
+ 		CREATE OBJECT student1 OF Student
+ 		SET student1.studentID TO 100
+ 		SET student1.studentName TO "Ali"
+ 		CREATE OBJECT grade1 OF Grade
+ 		SET grade1.gradeID TO 10
+ 		SET grade1.mark TO 90
+ 		CREATE OBJECT class1 OF Classroom
+ 		SET class1.classID TO 5
+END
+STOP
+==================================================================
+-------------------------------------------------------------------
+==================================================================
+
+
+
+
+Q 283 : 
+
+CLASS Policyholder
+ ATTRIBUTES
+ holderID : NUMBER
+ holderName : TEXT
+ phone : TEXT
+
+CONSTRUCTOR( ID , NAME, PHONE)
+	SET HOLDERID TO ID
+	SET HOLDERNAME TO NAME
+	SET PHONE TO PHONE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_HOLDER()
+  DISPLAY holderName
+ END METHOD
+END CLASS
+
+
+CLASS Policy
+ ATTRIBUTES
+ policyID : NUMBER
+ policyType : TEXT
+ premium : NUMBER
+
+CONSTRUCTOR(ID, TYPE, PREMIUM)
+	SET POLICYID TO ID
+	SET POLICYTYPE TO TYPE
+	SET PREMIUM TO PREMIUM
+END CONSTRUCTOR
+	
+
+ METHODS
+ SHOW_POLICY()
+  DISPLAY policyType
+ END METHOD
+END CLASS
+
+
+CLASS Coverage
+ ATTRIBUTES
+ coverageID : NUMBER
+ coverageType : TEXT
+ limit : NUMBER
+
+CONSTRUCTOR ( ID ,TYPE, LIMIT)
+	SET coverageID TO ID
+	SET coverageType TO TYPE
+	SET LIMIT TO LIMIT
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_COVERAGE()
+  DISPLAY coverageType
+ END METHOD
+END CLASS
+
+
+CLASS Claim
+ ATTRIBUTES
+ claimID : NUMBER
+ amount : NUMBER
+ status : TEXT
+
+CONSTRUCTOR( ID , AMOUNT , STATUS)
+	SET CLAIMID TO ID
+	SET AMOUNT TO AMOUNT
+	SET STATUS TO STATUS
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_CLAIM()
+  DISPLAY amount
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT holder1 OF Policyholder
+ 		SET holder1.holderID TO 1
+ 		SET holder1.holderName TO "Ali"
+ 		CREATE OBJECT policy1 OF Policy
+ 		SET policy1.policyID TO 10
+ 		SET policy1.policyType TO "Health"
+ 		CREATE OBJECT coverage1 OF Coverage
+ 		SET coverage1.coverageID TO 20
+ 		SET coverage1.coverageType TO "Medical"
+ 		CREATE OBJECT claim1 OF Claim
+ 		SET claim1.claimID TO 100
+ 		SET claim1.amount TO 500
+	END
+STOP
+====================================================
+-----------------------------------------------------
+====================================================
+Q 283 : 
+
+CLASS Customer
+ ATTRIBUTES
+ customerID : NUMBER
+ customerName : TEXT
+ phone : TEXT
+
+CONSTRUCTOR ( ID, NAME, PHONE)
+	SET CUSTOMERID TO ID
+	SET CUSTOMERNAME TO NAME
+	SET PHONE TO PHONE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_CUSTOMER()
+  DISPLAY customerName
+ END METHOD
+END CLASS
+
+
+CLASS Model
+ ATTRIBUTES
+ modelID : NUMBER
+ modelName : TEXT
+ price : NUMBER
+
+CONSTRUCTOR(ID , NAME , PRICE)
+	SET MODELID TO ID
+	SET MODELNAME TO NAME
+	SET PRICE TO PRICE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_MODEL()
+  DISPLAY modelName
+ END METHOD
+END CLASS
+
+
+CLASS Vehicle
+ ATTRIBUTES
+ vehicleID : NUMBER
+ brand : TEXT
+ color : TEXT
+
+CONSTRUCTOR( ID , BRAND, COLOR)
+	SET vehicleID TO ID
+	SET BRAND TO BRAND
+	SET COLOR TO COLOR
+END CONSTRUCTOR
+
+
+ METHODS
+ SHOW_VEHICLE()
+  DISPLAY brand
+ END METHOD
+END CLASS
+
+
+CLASS Sale
+ ATTRIBUTES
+ saleID : NUMBER
+ amount : NUMBER
+ date : TEXT
+
+CONSTRUCTOR( ID, AMOUNT , DATE)
+	SET SALEID TO ID
+	SET  AMOUNT TO AMOUNT
+	SET DATE TO DATE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_SALE()
+  DISPLAY amount
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT customer1 OF Customer
+ 		SET customer1.customerID TO 1
+ 		SET customer1.customerName TO "Ali"
+ 		CREATE OBJECT model1 OF Model
+ 		SET model1.modelID TO 10
+ 		SET model1.modelName TO "Corolla"
+ 		CREATE OBJECT vehicle1 OF Vehicle
+ 		SET vehicle1.vehicleID TO 100
+ 		SET vehicle1.brand TO "Toyota"
+ 		CREATE OBJECT sale1 OF Sale
+ 		SET sale1.saleID TO 500
+ 		SET sale1.amount TO 8000
+END
+STOP
+=============================================================
+------------------------------------------------------------
+=============================================================
+Q 284 : 
+CLASS Couple
+ ATTRIBUTES
+ coupleID : NUMBER
+ coupleName : TEXT
+ budget : NUMBER
+
+CONSTRUCTOR(ID , NAME, BUDGET)
+	SET COUPLEID TO ID
+	SET COUPLENAME TO NAME
+	SET BUDGET TO BUDGET
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_COUPLE()
+  DISPLAY coupleName
+ END METHOD
+END CLASS
+
+
+CLASS Venue
+ ATTRIBUTES
+ venueID : NUMBER
+ venueName : TEXT
+ capacity : NUMBER
+
+CONSTRUCTOR( ID , NAME, CAPACITY)
+	SET venueID TO ID
+	SET venueName TO NAME
+	SET CAPACITY TO CAPACITY
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_VENUE()
+  DISPLAY "venueName
+ END METHOD
+END CLASS
+
+
+CLASS Guest
+ ATTRIBUTES
+ guestID : NUMBER
+ guestName : TEXT
+ phone : TEXT
+
+CONSTRUCTOR ( ID, NAME, PHONE)
+	SET guestID TO ID
+	SET guestName TO NAME
+	SET PHONE TPO PHONE
+END CONSTRUCTOR
+
+
+
+
+ METHODS
+ SHOW_GUEST()
+  DISPLAY "guestName"
+ END METHOD
+END CLASS
+
+
+CLASS Service
+ ATTRIBUTES
+ serviceID : NUMBER
+ serviceName : TEXT
+ cost : NUMBER
+
+CONSTRUCTOR( ID, NAME, COST)
+	SET serviceID TO ID 
+	SET serviceName TO NAME
+	SET COST TO COST
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_SERVICE()
+  DISPLAY "erviceName"
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT couple1 OF Couple
+ 		SET couple1.coupleID TO 1
+ 		SET couple1.coupleName TO "Ali & Sara"
+ 		CREATE OBJECT venue1 OF Venue
+ 		SET venue1.venueID TO 10
+ 		SET venue1.venueName TO "Grand Hall"
+ 		CREATE OBJECT guest1 OF Guest
+ 		SET guest1.guestID TO 100
+ 		SET guest1.guestName TO "Ahmed"
+ 		CREATE OBJECT service1 OF Service
+ 		SET service1.serviceID TO 50
+ 		SET service1.serviceName TO "Catering"
+	END
+STOP
+
+----===============================================================
+===============================================================
+Q 285 : 
+
+CLASS Concert
+ ATTRIBUTES
+ concertID : NUMBER
+ concertName : TEXT
+ date : TEXT
+
+CONSTRUCTOR( ID, NAME, DATE)
+	SET CONCERTID TO ID
+	SET CONCERTNAME TO NAME
+	SET DATE TO DATE
+END CONSTRUC
+
+ METHODS
+ SHOW_CONCERT()
+  DISPLAY "oncertName"
+ END METHOD
+END CLASS
+
+
+CLASS Artist
+ ATTRIBUTES
+ artistID : NUMBER
+ artistName : TEXT
+ genre : TEXT
+
+CONSTRUCTOR ( ID, NAME , GENRE)
+	SET artistID TO ID
+	SET  artistName TO NAME
+	SET GENRE TO GENRE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_ARTIST()
+  DISPLAY "rtistName"
+ END METHOD
+END CLASS
+
+
+CLASS Ticket
+ ATTRIBUTES
+ ticketID : NUMBER
+ seatNo : NUMBER
+ price : NUMBER
+
+CONSTRUCTOR(ID,NO,PRICE)
+	SET ticketID TO ID
+	SET seatNo TO NO
+	SET PRICE TO PRICE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_TICKET()
+  DISPLAY "seatN"
+ END METHOD
+END CLASS
+
+
+CLASS Buyer
+ ATTRIBUTES
+ buyerID : NUMBER
+ buyerName : TEXT
+ phone : TEXT
+
+CONSTRUCTOR(ID , NAME, PHONE)
+	SET BUYERID TO ID
+	SET BUYERNAME TO NAME
+	SET PHONE TO PHONE
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_BUYER()
+  DISPLAY "buyerName"
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT concert1 OF Concert
+ 		SET concert1.concertID TO 1
+ 		SET concert1.concertName TO "Music Night"
+ 		CREATE OBJECT artist1 OF Artist
+ 		SET artist1.artistID TO 10
+ 		SET artist1.artistName TO "Ali"
+ 		CREATE OBJECT ticket1 OF Ticket
+ 		SET ticket1.ticketID TO 100
+ 		SET ticket1.seatNo TO 25
+ 		CREATE OBJECT buyer1 OF Buyer
+ 		SET buyer1.buyerID TO 50
+ 		SET buyer1.buyerName TO "Ahmed"
+	END
+STOP
+=======================================
+----------------------------------------------------------------------------------------
+======================================================
+Q 286 : 
+
+CLASS Sprint
+ ATTRIBUTES
+ sprintID : NUMBER
+ sprintName : TEXT
+ duration : NUMBER
+
+  CONSTRUCTOR(id, name)
+ 	SET sprintID TO id
+ 	SET sprintName TO name
+  END CONSTRUCTOR
+
+ METHODS
+ SHOW_SPRINT()
+  DISPLAY sprintName
+ END METHOD
+END CLASS
+
+
+CLASS Developer
+ ATTRIBUTES
+ developerID : NUMBER
+ developerName : TEXT
+ role : TEXT
+
+ 
+ CONSTRUCTOR(ID, Name, role)
+	SET developerID to ID
+	SET developerName TO Name
+	SET role to role
+ END CONSTRUCTOR
+
+ METHODS
+ SHOW_DEVELOPER()
+  DISPLAY developerName
+ END METHOD
+END CLASS
+
+
+CLASS Task
+ ATTRIBUTES
+ taskID : NUMBER
+ taskName : TEXT
+ status : TEXT
+
+ CONSTRUCTOR(id, name)
+ 	SET taskID TO id
+ 	SET taskName TO name
+ END CONSTRUCTOR
+
+ METHODS
+ SHOW_TASK()
+  DISPLAY taskName
+ END METHOD
+END CLASS
+
+
+CLASS Bug
+ ATTRIBUTES
+ bugID : NUMBER
+ bugName : TEXT
+ priority : TEXT
+
+ CONSTRUCTOR(ID, Name, priority)
+	SET bugID to ID
+	SET bugName to Name
+	SET priority to priority
+ END CONTRUCTOR
+
+ METHODS
+ SHOW_BUG()
+  DISPLAY bugName
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT sprint1 OF Sprint
+ 		SET sprint1.sprintID TO 1
+ 		SET sprint1.sprintName TO "Sprint 1"
+ 		CREATE OBJECT developer1 OF Developer
+ 		SET developer1.developerID TO 10
+ 		SET developer1.developerName TO "Ali"
+ 		CREATE OBJECT task1 OF Task
+ 		SET task1.taskID TO 100
+ 		SET task1.taskName TO "Login Page"
+ 		CREATE OBJECT bug1 OF Bug
+ 		SET bug1.bugID TO 50
+ 		SET bug1.bugName TO "Button Error"
+	END
+STOP
+==================================================
+---------------------------------------------------------------------------------------------------------------
+==================================================
+Q  287 :
+
+CLASS Farm
+ ATTRIBUTES
+ farmID : NUMBER
+ farmName : TEXT
+ location : TEXT
+
+CONSTRUCTOR(id, name)
+	SET farmID TO id
+	SET farmName TO name
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_FARM()
+  DISPLAY farmName
+ END METHOD
+END CLASS
+
+
+CLASS Crop
+ ATTRIBUTES
+ cropID : NUMBER
+ cropName : TEXT
+ season : TEXT
+
+CONSTRUCTOR( ID, NAME, SEASON)
+	SET CROPID TO ID
+	SET CROPNAME TO NAME
+	SET SEASON TO SEASON
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_CROP()
+  DISPLAY cropName
+ END METHOD
+END CLASS
+
+
+CLASS Animal
+ ATTRIBUTES
+ animalID : NUMBER
+ animalName : TEXT
+ type : TEXT
+
+CONSTRUCTOR( ID , NAME, TYPE)
+	SET ANIMALID TO ID
+	SET ANIMALNAME TO NAME
+	SET TYPE TO TYPE
+END CONSTRUCTOR 
+
+ METHODS
+ SHOW_ANIMAL()
+  DISPLAY animalName
+ END METHOD
+END CLASS
+
+
+CLASS Worker
+ ATTRIBUTES
+ workerID : NUMBER
+ workerName : TEXT
+ job : TEXT
+
+CONSTRUCTOR(id, name)
+	SET workerID TO id
+	SET workerName TO name
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_WORKER()
+  DISPLAY workerName
+ END METHOD
+END CLASS
+
+
+START
+	BEGIN
+ 		CREATE OBJECT farm1 OF Farm
+ 		SET farm1.farmID TO 1
+ 		SET farm1.farmName TO "Green Farm"
+ 		CREATE OBJECT crop1 OF Crop
+ 		SET crop1.cropID TO 10
+ 		SET crop1.cropName TO "Wheat"
+ 		CREATE OBJECT animal1 OF Animal
+ 		SET animal1.animalID TO 20
+ 		SET animal1.animalName TO "Cow"
+ 		CREATE OBJECT worker1 OF Worker
+ 		SET worker1.workerID TO 50
+ 		SET worker1.workerName TO "Ali"
+	END
+STOP
+=====================================================
+
+
+
+
+
+
+
