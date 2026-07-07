@@ -1,0 +1,403 @@
+=====================================================================================
+Q 288
+=====================================================================================
+
+CLASS Book
+ ATTRIBUTES
+  bookID : NUMBER
+  title : TEXT
+  author : TEXT
+  genre : TEXT
+
+CONSTRUCTOR(ID, Title, Author, Genre)
+ SET bookID TO ID
+ SET title TO Title
+ SET author TO Author
+ SET genre TO Genre
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_BOOK()
+  DISPLAY title
+ END METHOD
+END CLASS
+
+
+CLASS Customer
+ ATTRIBUTES
+  customerID : NUMBER
+  customerName : TEXT
+  phone : TEXT
+
+CONSTRUCTOR(ID, Name, Phone)
+ SET customerID TO ID
+ SET customerName TO Name
+ SET phone TO Phone
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_CUSTOMER()
+  DISPLAY customerName
+ END METHOD
+END CLASS
+
+
+CLASS Sale
+ ATTRIBUTES
+  saleID : NUMBER
+  soldPrice : NUMBER
+  date : TEXT
+
+CONSTRUCTOR(ID, Price, Date)
+ SET saleID TO ID
+ SET soldPrice TO Price
+ SET date TO Date
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_SALE()
+  DISPLAY soldPrice
+ END METHOD
+END CLASS
+
+
+CLASS Genre
+ ATTRIBUTES
+  genreID : NUMBER
+  genreName : TEXT
+  description : TEXT
+
+CONSTRUCTOR(ID, Name, Description)
+ SET genreID TO ID
+ SET genreName TO Name
+ SET description TO Description
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_GENRE()
+  DISPLAY genreName
+ END METHOD
+END CLASS
+
+
+START
+ BEGIN
+  CREATE OBJECT book1 OF Book
+  SET book1.bookID TO 1
+  SET book1.title TO "Java Basics"
+
+  CREATE OBJECT customer1 OF Customer
+  SET customer1.customerID TO 100
+  SET customer1.customerName TO "Ali"
+
+  CREATE OBJECT sale1 OF Sale
+  SET sale1.saleID TO 10
+  SET sale1.soldPrice TO 15
+
+  CREATE OBJECT genre1 OF Genre
+  SET genre1.genreID TO 5
+  SET genre1.genreName TO "Programming"
+ END
+STOP
+
+
+
+===============================================
+Q 289
+===============================================
+CLASS Exam
+ ATTRIBUTES
+  examID : NUMBER
+  examName : TEXT
+  duration : NUMBER
+
+CONSTRUCTOR(ID, Name, Duration)
+ SET examID TO ID
+ SET examName TO Name
+ SET duration TO Duration
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_EXAM()
+  DISPLAY examName
+ END METHOD
+END CLASS
+
+
+CLASS Question
+ ATTRIBUTES
+  questionID : NUMBER
+  questionText : TEXT
+  points : NUMBER
+
+CONSTRUCTOR(ID, Text, Points)
+ SET questionID TO ID
+ SET questionText TO Text
+ SET points TO Points
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_QUESTION()
+  DISPLAY questionText
+ END METHOD
+END CLASS
+
+
+CLASS Student
+ ATTRIBUTES
+  studentID : NUMBER
+  studentName : TEXT
+  grade : NUMBER
+
+CONSTRUCTOR(ID, Name, Grade)
+ SET studentID TO ID
+ SET studentName TO Name
+ SET grade TO Grade
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_STUDENT()
+  DISPLAY studentName
+ END METHOD
+END CLASS
+
+
+CLASS Attempt
+ ATTRIBUTES
+  attemptID : NUMBER
+  score : NUMBER
+  status : TEXT
+
+CONSTRUCTOR(ID, Score, Status)
+ SET attemptID TO ID
+ SET score TO Score
+ SET status TO Status
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_ATTEMPT()
+  DISPLAY score
+ END METHOD
+END CLASS
+
+
+START
+ BEGIN
+  CREATE OBJECT exam1 OF Exam
+  SET exam1.examID TO 1
+  SET exam1.examName TO "OOP Exam"
+
+  CREATE OBJECT question1 OF Question
+  SET question1.questionID TO 10
+  SET question1.questionText TO "What is OOP?"
+
+  CREATE OBJECT student1 OF Student
+  SET student1.studentID TO 100
+  SET student1.studentName TO "Ahmed"
+
+  CREATE OBJECT attempt1 OF Attempt
+  SET attempt1.attemptID TO 50
+  SET attempt1.score TO 90
+ END
+STOP
+=========================================================
+Q 290
+===========================================================
+CLASS Driver
+ ATTRIBUTES
+  driverID : NUMBER
+  driverName : TEXT
+  phone : TEXT
+
+CONSTRUCTOR(ID, Name, Phone)
+ SET driverID TO ID
+ SET driverName TO Name
+ SET phone TO Phone
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_DRIVER()
+  DISPLAY driverName
+ END METHOD
+END CLASS
+
+
+CLASS Passenger
+ ATTRIBUTES
+  passengerID : NUMBER
+  passengerName : TEXT
+  phone : TEXT
+
+CONSTRUCTOR(ID, Name, Phone)
+ SET passengerID TO ID
+ SET passengerName TO Name
+ SET phone TO Phone
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_PASSENGER()
+  DISPLAY passengerName
+ END METHOD
+END CLASS
+
+
+CLASS Trip
+ ATTRIBUTES
+  tripID : NUMBER
+  pickup : TEXT
+  fare : NUMBER
+
+CONSTRUCTOR(ID, Pickup, Fare)
+ SET tripID TO ID
+ SET pickup TO Pickup
+ SET fare TO Fare
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_TRIP()
+  DISPLAY pickup
+ END METHOD
+END CLASS
+
+
+CLASS Vehicle
+ ATTRIBUTES
+  vehicleID : NUMBER
+  vehicleName : TEXT
+  plateNo : TEXT
+
+CONSTRUCTOR(ID, Name, Plate)
+ SET vehicleID TO ID
+ SET vehicleName TO Name
+ SET plateNo TO Plate
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_VEHICLE()
+  DISPLAY vehicleName
+ END METHOD
+END CLASS
+
+
+START
+ BEGIN
+  CREATE OBJECT driver1 OF Driver
+  SET driver1.driverID TO 1
+  SET driver1.driverName TO "Ali"
+
+  CREATE OBJECT passenger1 OF Passenger
+  SET passenger1.passengerID TO 20
+  SET passenger1.passengerName TO "Ahmed"
+
+  CREATE OBJECT trip1 OF Trip
+  SET trip1.tripID TO 100
+  SET trip1.pickup TO "Mall"
+
+  CREATE OBJECT vehicle1 OF Vehicle
+  SET vehicle1.vehicleID TO 10
+  SET vehicle1.vehicleName TO "Toyota"
+ END
+STOP
+
+==============================================
+Q 291
+==============================================
+CLASS Member
+ ATTRIBUTES
+  memberID : NUMBER
+  memberName : TEXT
+  phone : TEXT
+
+CONSTRUCTOR(ID, Name, Phone)
+ SET memberID TO ID
+ SET memberName TO Name
+ SET phone TO Phone
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_MEMBER()
+  DISPLAY memberName
+ END METHOD
+END CLASS
+
+
+CLASS MembershipPlan
+ ATTRIBUTES
+  planID : NUMBER
+  planName : TEXT
+  quota : NUMBER
+
+CONSTRUCTOR(ID, Name, Quota)
+ SET planID TO ID
+ SET planName TO Name
+ SET quota TO Quota
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_PLAN()
+  DISPLAY planName
+ END METHOD
+END CLASS
+
+
+CLASS Room
+ ATTRIBUTES
+  roomID : NUMBER
+  roomName : TEXT
+  capacity : NUMBER
+
+CONSTRUCTOR(ID, Name, Capacity)
+ SET roomID TO ID
+ SET roomName TO Name
+ SET capacity TO Capacity
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_ROOM()
+  DISPLAY roomName
+ END METHOD
+END CLASS
+
+
+CLASS Booking
+ ATTRIBUTES
+  bookingID : NUMBER
+  bookingTime : TEXT
+  hours : NUMBER
+
+CONSTRUCTOR(ID, Time, Hours)
+ SET bookingID TO ID
+ SET bookingTime TO Time
+ SET hours TO Hours
+END CONSTRUCTOR
+
+ METHODS
+ SHOW_BOOKING()
+  DISPLAY bookingTime
+ END METHOD
+END CLASS
+
+
+START
+ BEGIN
+  CREATE OBJECT member1 OF Member
+  SET member1.memberID TO 1
+  SET member1.memberName TO "Sara"
+
+  CREATE OBJECT plan1 OF MembershipPlan
+  SET plan1.planID TO 10
+  SET plan1.planName TO "Gold"
+
+  CREATE OBJECT room1 OF Room
+  SET room1.roomID TO 5
+  SET room1.roomName TO "Meeting Room A"
+
+  CREATE OBJECT booking1 OF Booking
+  SET booking1.bookingID TO 100
+  SET booking1.bookingTime TO "10:00 AM"
+ END
+STOP
+
+
+
+
