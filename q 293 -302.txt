@@ -1,0 +1,44 @@
+(MOHAMMED SAID)--- > (0)_(0)
+      (◕‿◕)
+      /|\
+      / \
+
+Q:293
+=================================================================
+=================================================================
+CLASS CIRCLE
+    ATTRIBUTES
+        CIRCLECOLOR: TEXT
+        CIRCLERADIUS: NUMBER
+        CIRCLEPOSITION: TEXT
+        CIRCLEAREA : NUMBER
+        CIRCLEPEREMETER : NUMBER
+
+CONSTRUCTOR( COLOR,RADIUS,POSITION,AREA,PERIMETER)
+	SET COLOR TO C
+	SET RADIUS TO R
+	SET POSITION TO P
+	SET AREA TO A
+	SET PERMIMETER 
+END CONSTRUCTOR
+
+METHODS
+SHOW_CIRCLE
+DISPLAY CIRCLECOLOR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
