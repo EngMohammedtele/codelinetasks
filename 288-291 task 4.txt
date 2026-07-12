@@ -1,0 +1,698 @@
+=====================================================================================
+Q 288
+=====================================================================================
+
+CLASS Genre
+ ATTRIBUTES
+  PRIVATE genreID : NUMBER
+  PRIVATE genreName : TEXT
+  PRIVATE description : TEXT
+  PRIVATE books : LIST<Book>
+
+CONSTRUCTOR(ID, Name, Description)
+ SET genreID TO ID
+ SET genreName TO Name
+ SET description TO Description
+ SET books TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_BOOK(book : Book)
+  ADD book TO books
+ END METHOD
+
+ GET_NAME()
+  RETURN genreName
+ END METHOD
+
+ SHOW_GENRE()
+  DISPLAY genreName
+ END METHOD
+END CLASS
+
+
+CLASS Book
+ ATTRIBUTES
+  PRIVATE bookID : NUMBER
+  PRIVATE title : TEXT
+  PRIVATE author : TEXT
+  PRIVATE price : NUMBER
+  PRIVATE genre : Genre
+  PRIVATE sales : LIST<Sale>
+
+CONSTRUCTOR(ID, Title, Author, Price, GenreObj)
+ IF Price > 0 THEN
+  SET bookID TO ID
+  SET title TO Title
+  SET author TO Author
+  SET price TO Price
+  SET genre TO GenreObj
+  SET sales TO EMPTY LIST
+ ELSE
+  DISPLAY "Invalid Price"
+ END IF
+END CONSTRUCTOR
+
+METHODS
+ ADD_SALE(s : Sale)
+  ADD s TO sales
+ END METHOD
+
+ GET_TITLE()
+  RETURN title
+ END METHOD
+
+ GET_PRICE()
+  RETURN price
+ END METHOD
+
+ SHOW_BOOK()
+  DISPLAY title
+ END METHOD
+END CLASS
+
+
+CLASS Customer
+ ATTRIBUTES
+  PRIVATE customerID : NUMBER
+  PRIVATE customerName : TEXT
+  PRIVATE phone : TEXT
+  PRIVATE purchaseHistory : LIST<Sale>
+
+CONSTRUCTOR(ID, Name, Phone)
+ SET customerID TO ID
+ SET customerName TO Name
+ SET phone TO Phone
+ SET purchaseHistory TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_PURCHASE(s : Sale)
+  ADD s TO purchaseHistory
+ END METHOD
+
+ GET_TOTAL_SPENT()
+  SET total TO 0
+
+  FOR EACH sale IN purchaseHistory
+   SET total TO total + sale.GET_PRICE()
+  END FOR
+
+  RETURN total
+ END METHOD
+
+ SHOW_HISTORY()
+  FOR EACH sale IN purchaseHistory
+   sale.SHOW_SALE()
+  END FOR
+ END METHOD
+
+ GET_NAME()
+  RETURN customerName
+ END METHOD
+
+ SHOW_CUSTOMER()
+  DISPLAY customerName
+ END METHOD
+END CLASS
+
+
+CLASS Sale
+ ATTRIBUTES
+  PRIVATE saleID : NUMBER
+  PRIVATE book : Book
+  PRIVATE customer : Customer
+  PRIVATE soldPrice : NUMBER
+  PRIVATE date : TEXT
+
+CONSTRUCTOR(ID, BookObj, CustomerObj, Price, Date)
+ IF Price > 0 THEN
+  SET saleID TO ID
+  SET book TO BookObj
+  SET customer TO CustomerObj
+  SET soldPrice TO Price
+  SET date TO Date
+ ELSE
+  DISPLAY "Invalid Price"
+ END IF
+END CONSTRUCTOR
+
+METHODS
+ GET_PRICE()
+  RETURN soldPrice
+ END METHOD
+
+ SHOW_SALE()
+  DISPLAY soldPrice
+ END METHOD
+END CLASS
+
+
+START
+BEGIN
+
+ CREATE OBJECT genre1 OF Genre(5, "Programming", "Programming Books")
+ CREATE OBJECT book1 OF Book(1, "Java Basics", "John Smith", 15, genre1)
+ CALL genre1.ADD_BOOK(book1)
+ CREATE OBJECT customer1 OF Customer(100, "Ali", "98765432")
+ CREATE OBJECT sale1 OF Sale(10, book1, customer1, 15, "2026-07-10")
+ customer1.ADD_PURCHASE(sale1)
+ book1.ADD_SALE(sale1)
+ DISPLAY customer1.GET_TOTAL_SPENT()
+
+END
+STOP
+
+===============================================
+Q 289
+===============================================
+CLASS Question
+ ATTRIBUTES
+  PRIVATE questionID : NUMBER
+  PRIVATE questionText : TEXT
+  PRIVATE correctAnswer : TEXT
+  PRIVATE points : NUMBER
+
+CONSTRUCTOR(ID, Text, Answer, Points)
+ SET questionID TO ID
+ SET questionText TO Text
+ SET correctAnswer TO Answer
+ SET points TO Points
+END CONSTRUCTOR
+
+METHODS
+ GET_CORRECT_ANSWER()
+  RETURN correctAnswer
+ END METHOD
+
+ GET_POINTS()
+  RETURN points
+ END METHOD
+
+ SHOW_QUESTION()
+  DISPLAY questionText
+ END METHOD
+END CLASS
+
+CLASS Exam
+ ATTRIBUTES
+  PRIVATE examID : NUMBER
+  PRIVATE examName : TEXT
+  PRIVATE duration : NUMBER
+  PRIVATE questions : LIST<Question>
+
+CONSTRUCTOR(ID, Name, Duration)
+ SET examID TO ID
+ SET examName TO Name
+ SET duration TO Duration
+ SET questions TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_QUESTION(q : Question)
+  ADD q TO questions
+ END METHOD
+
+ GET_QUESTIONS()
+  RETURN questions
+ END METHOD
+
+ GET_DURATION()
+  RETURN duration
+ END METHOD
+
+ SHOW_EXAM()
+  DISPLAY examName
+ END METHOD
+END CLASS
+
+
+CLASS Student
+ ATTRIBUTES
+  PRIVATE studentID : NUMBER
+  PRIVATE studentName : TEXT
+  PRIVATE attempts : LIST<Attempt>
+
+CONSTRUCTOR(ID, Name)
+ SET studentID TO ID
+ SET studentName TO Name
+ SET attempts TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_ATTEMPT(a : Attempt)
+  ADD a TO attempts
+ END METHOD
+
+ GET_NAME()
+  RETURN studentName
+ END METHOD
+
+ SHOW_STUDENT()
+  DISPLAY studentName
+ END METHOD
+END CLASS
+
+
+CLASS Attempt
+ ATTRIBUTES
+  PRIVATE attemptID : NUMBER
+  PRIVATE exam : Exam
+  PRIVATE student : Student
+  PRIVATE answers : LIST<TEXT>
+  PRIVATE score : NUMBER
+  PRIVATE startTime : NUMBER
+
+CONSTRUCTOR(ID, ExamObj, StudentObj, Start)
+ SET attemptID TO ID
+ SET exam TO ExamObj
+ SET student TO StudentObj
+ SET answers TO EMPTY LIST
+ SET score TO 0
+ SET startTime TO Start
+END CONSTRUCTOR
+
+METHODS
+ ADD_ANSWER(answerText, CurrentTime)
+
+  IF CurrentTime - startTime > exam.GET_DURATION() THEN
+   DISPLAY "Time Expired"
+  ELSE
+   ADD answerText TO answers
+  END IF
+
+ END METHOD
+
+
+ CALCULATE_SCORE()
+
+  SET total TO 0
+  SET questionList TO exam.GET_QUESTIONS()
+
+  FOR i = 1 TO SIZE OF questionList
+
+   IF answers[i] = questionList[i].GET_CORRECT_ANSWER() THEN
+    SET total TO total + questionList[i].GET_POINTS()
+   END IF
+
+  END FOR
+
+  SET score TO total
+  RETURN score
+
+ END METHOD
+
+
+ SHOW_ATTEMPT()
+  DISPLAY score
+ END METHOD
+END CLASS
+
+
+START
+BEGIN
+
+ CREATE OBJECT exam1 OF Exam(1,"OOP Exam",60)
+ CREATE OBJECT question1 OF Question(1,"What is OOP?","Object-Oriented Programming",10)
+ CALL exam1.ADD_QUESTION(question1)
+ CREATE OBJECT student1 OF Student(100,"Ahmed")
+ CREATE OBJECT attempt1 OF Attempt(50,exam1,student1,0)
+ student1.ADD_ATTEMPT(attempt1)
+ attempt1.ADD_ANSWER("Object-Oriented Programming",20)
+ DISPLAY attempt1.CALCULATE_SCORE()
+
+END
+STOP
+=========================================================
+Q 290
+===========================================================
+CLASS Vehicle
+ ATTRIBUTES
+  PRIVATE vehicleID : NUMBER
+  PRIVATE vehicleName : TEXT
+  PRIVATE plateNo : TEXT
+
+CONSTRUCTOR(ID, Name, Plate)
+ SET vehicleID TO ID
+ SET vehicleName TO Name
+ SET plateNo TO Plate
+END CONSTRUCTOR
+
+METHODS
+ GET_NAME()
+  RETURN vehicleName
+ END METHOD
+
+ SHOW_VEHICLE()
+  DISPLAY vehicleName
+ END METHOD
+END CLASS
+
+
+
+CLASS Driver
+ ATTRIBUTES
+  PRIVATE driverID : NUMBER
+  PRIVATE driverName : TEXT
+  PRIVATE phone : TEXT
+  PRIVATE vehicle : Vehicle
+  PRIVATE trips : LIST<Trip>
+
+CONSTRUCTOR(ID, Name, Phone, VehicleObj)
+ SET driverID TO ID
+ SET driverName TO Name
+ SET phone TO Phone
+ SET vehicle TO VehicleObj
+ SET trips TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_TRIP(t : Trip)
+  ADD t TO trips
+ END METHOD
+
+ VIEW_TRIPS()
+  FOR EACH trip IN trips
+   trip.SHOW_TRIP()
+  END FOR
+ END METHOD
+
+ GET_TOTAL_FARE()
+  SET total TO 0
+
+  FOR EACH trip IN trips
+   SET total TO total + trip.GET_FARE()
+  END FOR
+
+  RETURN total
+ END METHOD
+
+ GET_NAME()
+  RETURN driverName
+ END METHOD
+
+ SHOW_DRIVER()
+  DISPLAY driverName
+ END METHOD
+END CLASS
+
+
+
+CLASS Passenger
+ ATTRIBUTES
+  PRIVATE passengerID : NUMBER
+  PRIVATE passengerName : TEXT
+  PRIVATE phone : TEXT
+  PRIVATE trips : LIST<Trip>
+
+CONSTRUCTOR(ID, Name, Phone)
+ SET passengerID TO ID
+ SET passengerName TO Name
+ SET phone TO Phone
+ SET trips TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_TRIP(t : Trip)
+  ADD t TO trips
+ END METHOD
+
+ VIEW_HISTORY()
+  FOR EACH trip IN trips
+   trip.SHOW_TRIP()
+  END FOR
+ END METHOD
+
+ GET_NAME()
+  RETURN passengerName
+ END METHOD
+
+ SHOW_PASSENGER()
+  DISPLAY passengerName
+ END METHOD
+END CLASS
+
+
+
+CLASS Trip
+ ATTRIBUTES
+  PRIVATE tripID : NUMBER
+  PRIVATE pickup : TEXT
+  PRIVATE dropoff : TEXT
+  PRIVATE fare : NUMBER
+  PRIVATE driver : Driver
+  PRIVATE passenger : Passenger
+
+CONSTRUCTOR(ID, Pickup, Dropoff, Fare, DriverObj, PassengerObj)
+
+ IF Fare > 0 AND Pickup <> Dropoff THEN
+  SET tripID TO ID
+  SET pickup TO Pickup
+  SET dropoff TO Dropoff
+  SET fare TO Fare
+  SET driver TO DriverObj
+  SET passenger TO PassengerObj
+ ELSE
+  DISPLAY "Invalid Trip"
+ END IF
+
+END CONSTRUCTOR
+
+METHODS
+ GET_FARE()
+  RETURN fare
+ END METHOD
+
+ SHOW_TRIP()
+  DISPLAY pickup
+  DISPLAY dropoff
+ END METHOD
+END CLASS
+
+
+
+START
+BEGIN
+
+ CREATE OBJECT vehicle1 OF Vehicle(10,"Toyota","12345")
+ CREATE OBJECT driver1 OF Driver(1,"Ali","98765432",vehicle1)
+ CREATE OBJECT passenger1 OF Passenger(20,"Ahmed","91234567")
+ CREATE OBJECT trip1 OF Trip(100,"Mall","University",15,driver1,passenger1)
+ driver1.ADD_TRIP(trip1)
+ passenger1.ADD_TRIP(trip1)
+ DISPLAY driver1.GET_TOTAL_FARE()
+
+END
+STOP
+==============================================
+Q 291
+==============================================
+CLASS MembershipPlan
+ ATTRIBUTES
+  PRIVATE planID : NUMBER
+  PRIVATE planName : TEXT
+  PRIVATE quota : NUMBER
+
+CONSTRUCTOR(ID, Name, Quota)
+ SET planID TO ID
+ SET planName TO Name
+ SET quota TO Quota
+END CONSTRUCTOR
+
+METHODS
+ GET_QUOTA()
+  RETURN quota
+ END METHOD
+
+ SHOW_PLAN()
+  DISPLAY planName
+ END METHOD
+END CLASS
+
+CLASS Member
+ ATTRIBUTES
+  PRIVATE memberID : NUMBER
+  PRIVATE memberName : TEXT
+  PRIVATE phone : TEXT
+  PRIVATE plan : MembershipPlan
+  PRIVATE bookings : LIST<Booking>
+
+CONSTRUCTOR(ID, Name, Phone, PlanObj)
+ SET memberID TO ID
+ SET memberName TO Name
+ SET phone TO Phone
+ SET plan TO PlanObj
+ SET bookings TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_BOOKING(b : Booking)
+  ADD b TO bookings
+ END METHOD
+
+ CALCULATE_USED_HOURS()
+  SET total TO 0
+
+  FOR EACH booking IN bookings
+   SET total TO total + booking.GET_HOURS()
+  END FOR
+
+  RETURN total
+ END METHOD
+
+ GET_REMAINING_HOURS()
+  RETURN plan.GET_QUOTA() - CALCULATE_USED_HOURS()
+ END METHOD
+
+ SHOW_MEMBER()
+  DISPLAY memberName
+ END METHOD
+END CLASS                                                  
+
+CLASS Room
+ ATTRIBUTES
+  PRIVATE roomID : NUMBER
+  PRIVATE roomName : TEXT
+  PRIVATE capacity : NUMBER
+  PRIVATE bookings : LIST<Booking>
+
+CONSTRUCTOR(ID, Name, Capacity)
+ SET roomID TO ID
+ SET roomName TO Name
+ SET capacity TO Capacity
+ SET bookings TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_BOOKING(b : Booking)
+  ADD b TO bookings
+ END METHOD
+
+ IS_AVAILABLE(Date, Start, End)
+
+  FOR EACH booking IN bookings
+
+   IF booking.GET_DATE() = Date THEN
+
+    IF Start < booking.GET_ENDTIME() AND End > booking.GET_STARTTIME() THEN
+     RETURN FALSE
+    END IF
+
+   END IF
+
+  END FOR
+
+  RETURN TRUE
+
+ END METHOD
+
+ SHOW_ROOM()
+  DISPLAY roomName
+ END METHOD
+END CLASS
+
+CLASS Booking
+ ATTRIBUTES
+  PRIVATE bookingID : NUMBER
+  PRIVATE date : TEXT
+  PRIVATE startTime : NUMBER
+  PRIVATE endTime : NUMBER
+  PRIVATE hours : NUMBER
+  PRIVATE member : Member
+  PRIVATE room : Room
+
+CONSTRUCTOR(ID, Date, Start, End, Hours, MemberObj, RoomObj)
+
+ IF Hours > 0 AND Start < End THEN
+  SET bookingID TO ID
+  SET date TO Date
+  SET startTime TO Start
+  SET endTime TO End
+  SET hours TO Hours
+  SET member TO MemberObj
+  SET room TO RoomObj
+ ELSE
+  DISPLAY "Invalid Booking"
+ END IF
+
+END CONSTRUCTOR
+
+METHODS
+ GET_HOURS()
+  RETURN hours
+ END METHOD
+
+ GET_DATE()
+  RETURN date
+ END METHOD
+
+ GET_STARTTIME()
+  RETURN startTime
+ END METHOD
+
+ GET_ENDTIME()
+  RETURN endTime
+ END METHOD
+
+ CONFIRM()
+
+  IF member.GET_REMAINING_HOURS() < hours THEN
+   DISPLAY "Quota Exceeded"
+
+  ELSE IF room.IS_AVAILABLE(date,startTime,endTime) = FALSE THEN
+   DISPLAY "Room Not Available"
+
+  ELSE
+   CALL member.ADD_BOOKING(this)
+   CALL room.ADD_BOOKING(this)
+   DISPLAY "Booking Confirmed"
+  END IF
+
+ END METHOD
+
+ SHOW_BOOKING()
+  DISPLAY date
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT plan1 OF MembershipPlan(10,"Gold",20)
+ CREATE OBJECT member1 OF Member(1,"Sara","98765432",plan1)
+ CREATE OBJECT room1 OF Room(5,"Meeting Room A",10)
+ CREATE OBJECT booking1 OF Booking(100,"2026-07-10",10,12,2,member1,room1)
+ booking1.CONFIRM()
+ DISPLAY member1.GET_REMAINING_HOURS()
+
+END
+STOP 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
