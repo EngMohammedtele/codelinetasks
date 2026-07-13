@@ -1,0 +1,599 @@
+(MOHAMMED SAID)
+===========================================================
+Q 303
+=========================================================
+
+CLASS Instrument
+ ATTRIBUTES
+  PRIVATE brand : TEXT
+  PRIVATE price : NUMBER
+
+CONSTRUCTOR(Brand, Price)
+ SET brand TO Brand
+ SET price TO Price
+END CONSTRUCTOR
+
+METHODS
+ DESCRIBE_PLAY_STYLE()
+  DISPLAY "General Instrument"
+ END METHOD
+
+ SHOW_INFO()
+  DISPLAY brand
+  DISPLAY price
+ END METHOD
+END CLASS
+
+
+
+CLASS Guitar INHERITS Instrument
+ ATTRIBUTES
+  PRIVATE strings : NUMBER
+
+CONSTRUCTOR(Brand, Price, Strings)
+ CALL SUPER(Brand, Price)
+ SET strings TO Strings
+END CONSTRUCTOR
+
+METHODS
+ DESCRIBE_PLAY_STYLE()
+  DISPLAY "Strummed or Plucked"
+ END METHOD
+END CLASS
+
+CLASS DrumKit INHERITS Instrument
+ ATTRIBUTES
+  PRIVATE drumPieces : NUMBER
+
+CONSTRUCTOR(Brand, Price, Pieces)
+ CALL SUPER(Brand, Price)
+ SET drumPieces TO Pieces
+END CONSTRUCTOR
+
+METHODS
+ DESCRIBE_PLAY_STYLE()
+  DISPLAY "Struck"
+ END METHOD
+END CLASS
+
+CLASS Keyboard INHERITS Instrument
+ ATTRIBUTES
+  PRIVATE keys : NUMBER
+
+CONSTRUCTOR(Brand, Price, Keys)
+ CALL SUPER(Brand, Price)
+ SET keys TO Keys
+END CONSTRUCTOR
+
+METHODS
+ DESCRIBE_PLAY_STYLE()
+  DISPLAY "Pressed"
+ END METHOD
+END CLASS
+
+CLASS Store
+ ATTRIBUTES
+  PRIVATE storeName : TEXT
+  PRIVATE instruments : LIST<Instrument>
+
+CONSTRUCTOR(Name)
+ SET storeName TO Name
+ SET instruments TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_INSTRUMENT(inst : Instrument)
+  ADD inst TO instruments
+ END METHOD
+
+ SHOW_INVENTORY()
+  FOR EACH inst IN instruments
+   CALL inst.SHOW_INFO()
+   CALL inst.DESCRIBE_PLAY_STYLE()
+  END FOR
+ END METHOD
+END CLASS
+
+
+
+START
+BEGIN
+
+ CREATE OBJECT store1 OF Store("Music Store")
+ CREATE OBJECT guitar1 OF Guitar("Yamaha",350,6)
+ CREATE OBJECT drum1 OF DrumKit("Pearl",800,5)
+ CREATE OBJECT keyboard1 OF Keyboard("Casio",450,61)
+ store1.ADD_INSTRUMENT(guitar1)
+ store1.ADD_INSTRUMENT(drum1)
+ store1.ADD_INSTRUMENT(keyboard1)
+ store1.SHOW_INVENTORY()
+
+END
+STOP
+
+
+==============================
+Q304
+===============================
+CLASS Workout
+ ATTRIBUTES
+  PRIVATE date : TEXT
+  PRIVATE duration : NUMBER
+
+CONSTRUCTOR(Date, Duration)
+ SET date TO Date
+ SET duration TO Duration
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_CALORIES()
+  RETURN 0
+ END METHOD
+
+ SHOW_WORKOUT()
+  DISPLAY date
+  DISPLAY duration
+ END METHOD
+END CLASS
+
+
+
+CLASS RunningWorkout INHERITS Workout
+ ATTRIBUTES
+  PRIVATE distance : NUMBER
+  PRIVATE pace : NUMBER
+
+CONSTRUCTOR(Date, Duration, Distance, Pace)
+ CALL SUPER(Date, Duration)
+ SET distance TO Distance
+ SET pace TO Pace
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_CALORIES()
+  RETURN distance * pace * 10
+ END METHOD
+END CLASS
+
+
+
+CLASS CyclingWorkout INHERITS Workout
+ ATTRIBUTES
+  PRIVATE distance : NUMBER
+  PRIVATE resistanceLevel : NUMBER
+
+CONSTRUCTOR(Date, Duration, Distance, Resistance)
+ CALL SUPER(Date, Duration)
+ SET distance TO Distance
+ SET resistanceLevel TO Resistance
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_CALORIES()
+  RETURN distance * resistanceLevel * 8
+ END METHOD
+END CLASS
+
+
+
+CLASS WeightTrainingWorkout INHERITS Workout
+ ATTRIBUTES
+  PRIVATE sets : NUMBER
+  PRIVATE reps : NUMBER
+
+CONSTRUCTOR(Date, Duration, Sets, Reps)
+ CALL SUPER(Date, Duration)
+ SET sets TO Sets
+ SET reps TO Reps
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_CALORIES()
+  RETURN sets * reps * 2
+ END METHOD
+END CLASS
+
+
+
+CLASS FitnessLog
+ ATTRIBUTES
+  PRIVATE userName : TEXT
+  PRIVATE workouts : LIST<Workout>
+
+CONSTRUCTOR(Name)
+ SET userName TO Name
+ SET workouts TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_WORKOUT(w : Workout)
+  ADD w TO workouts
+ END METHOD
+
+ SHOW_WORKOUTS()
+  FOR EACH w IN workouts
+   CALL w.SHOW_WORKOUT()
+   DISPLAY w.CALCULATE_CALORIES()
+  END FOR
+ END METHOD
+END CLASS
+
+
+
+START
+BEGIN
+
+ CREATE OBJECT log1 OF FitnessLog("Ahmed")
+ CREATE OBJECT run1 OF RunningWorkout("2026-07-15",30,5,6)
+ CREATE OBJECT cycle1 OF CyclingWorkout("2026-07-16",45,12,4)
+ CREATE OBJECT weight1 OF WeightTrainingWorkout("2026-07-17",40,4,12)
+ log1.ADD_WORKOUT(run1)
+ log1.ADD_WORKOUT(cycle1)
+ log1.ADD_WORKOUT(weight1)
+ log1.SHOW_WORKOUTS()
+
+END
+STOP
+=====================================
+Q305
+=========================================
+CLASS Inventory
+ ATTRIBUTES
+  PRIVATE items : LIST<TEXT>
+
+CONSTRUCTOR()
+ SET items TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_ITEM(item : TEXT)
+  ADD item TO items
+ END METHOD
+
+ SHOW_ITEMS()
+  FOR EACH item IN items
+   DISPLAY item
+  END FOR
+ END METHOD
+END CLASS
+
+CLASS Character
+ ATTRIBUTES
+  PRIVATE name : TEXT
+  PRIVATE health : NUMBER
+  PRIVATE inventory : Inventory
+
+CONSTRUCTOR(Name, Health)
+ SET name TO Name
+ SET health TO Health
+ CREATE OBJECT inventory OF Inventory()
+END CONSTRUCTOR
+
+METHODS
+ ATTACK()
+  DISPLAY "Character Attacks"
+ END METHOD
+
+ SHOW_INFO()
+  DISPLAY name
+  DISPLAY health
+ END METHOD
+END CLASS
+
+CLASS Warrior INHERITS Character
+ ATTRIBUTES
+  PRIVATE armor : TEXT
+
+CONSTRUCTOR(Name, Health, Armor)
+ CALL SUPER(Name, Health)
+ SET armor TO Armor
+END CONSTRUCTOR
+
+METHODS
+ ATTACK()
+  DISPLAY "Attacks using Melee Strength"
+ END METHOD
+END CLASS
+
+CLASS Mage INHERITS Character
+ ATTRIBUTES
+  PRIVATE mana : NUMBER
+
+CONSTRUCTOR(Name, Health, Mana)
+ CALL SUPER(Name, Health)
+ SET mana TO Mana
+END CONSTRUCTOR
+
+METHODS
+ ATTACK()
+  DISPLAY "Attacks using Magic Spells"
+  SET mana TO mana - 10
+ END METHOD
+END CLASS
+
+CLASS Archer INHERITS Character
+ ATTRIBUTES
+  PRIVATE arrows : NUMBER
+
+CONSTRUCTOR(Name, Health, Arrows)
+ CALL SUPER(Name, Health)
+ SET arrows TO Arrows
+END CONSTRUCTOR
+
+METHODS
+ ATTACK()
+  IF arrows > 0 THEN
+   DISPLAY "Attacks using Arrows"
+   SET arrows TO arrows - 1
+  ELSE
+   DISPLAY "No Arrows Left"
+  END IF
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT warrior1 OF Warrior("Leon",100,"Heavy Armor")
+ CREATE OBJECT mage1 OF Mage("Ezio",80,100)
+ CREATE OBJECT archer1 OF Archer("Robin",90,20)
+ warrior1.ATTACK()
+ mage1.ATTACK()
+ cher1.ATTACK()
+END
+STOP
+
+=========================================================
+Q 306
+=========================================================
+
+CLASS MeterReading
+ ATTRIBUTES
+  PRIVATE startReading : NUMBER
+  PRIVATE endReading : NUMBER
+
+CONSTRUCTOR(Start, End)
+ SET startReading TO Start
+ SET endReading TO End
+END CONSTRUCTOR
+
+METHODS
+ GET_CONSUMPTION()
+  RETURN endReading - startReading
+ END METHOD
+END CLASS
+
+
+
+CLASS Bill
+ ATTRIBUTES
+  PRIVATE billingPeriod : TEXT
+  PRIVATE dueDate : TEXT
+  PRIVATE reading : MeterReading
+
+CONSTRUCTOR(Period, DueDate, ReadingObj)
+ SET billingPeriod TO Period
+ SET dueDate TO DueDate
+ SET reading TO ReadingObj
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_AMOUNT_OWED()
+  RETURN 0
+ END METHOD
+
+ GET_CONSUMPTION()
+  RETURN reading.GET_CONSUMPTION()
+ END METHOD
+
+ SHOW_BILL()
+  DISPLAY billingPeriod
+  DISPLAY dueDate
+ END METHOD
+END CLASS
+
+CLASS ElectricityBill INHERITS Bill
+ ATTRIBUTES
+  PRIVATE rate : NUMBER
+
+CONSTRUCTOR(Period, DueDate, ReadingObj, Rate)
+ CALL SUPER(Period, DueDate, ReadingObj)
+ SET rate TO Rate
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_AMOUNT_OWED()
+  RETURN GET_CONSUMPTION() * rate
+ END METHOD
+END CLASS
+
+CLASS WaterBill INHERITS Bill
+ ATTRIBUTES
+  PRIVATE rate : NUMBER
+  PRIVATE standingCharge : NUMBER
+
+CONSTRUCTOR(Period, DueDate, ReadingObj, Rate, Charge)
+ CALL SUPER(Period, DueDate, ReadingObj)
+ SET rate TO Rate
+ SET standingCharge TO Charge
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_AMOUNT_OWED()
+  RETURN (GET_CONSUMPTION() * rate) + standingCharge
+ END METHOD
+END CLASS
+
+CLASS GasBill INHERITS Bill
+ ATTRIBUTES
+  PRIVATE rate : NUMBER
+  PRIVATE winterSurcharge : NUMBER
+
+CONSTRUCTOR(Period, DueDate, ReadingObj, Rate, Surcharge)
+ CALL SUPER(Period, DueDate, ReadingObj)
+ SET rate TO Rate
+ SET winterSurcharge TO Surcharge
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_AMOUNT_OWED()
+  RETURN (GET_CONSUMPTION() * rate) + winterSurcharge
+ END METHOD
+END CLASS
+
+CLASS CustomerAccount
+ ATTRIBUTES
+  PRIVATE customerName : TEXT
+  PRIVATE bills : LIST<Bill>
+
+CONSTRUCTOR(Name)
+ SET customerName TO Name
+ SET bills TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_BILL(b : Bill)
+  ADD b TO bills
+ END METHOD
+
+ SHOW_BILLS()
+  FOR EACH b IN bills
+   CALL b.SHOW_BILL()
+   DISPLAY b.CALCULATE_AMOUNT_OWED()
+  END FOR
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT reading1 OF MeterReading(1000,1200)
+ CREATE OBJECT electricBill1 OF ElectricityBill("July","2026-08-01",reading1,0.25)
+ CREATE OBJECT waterBill1 OF WaterBill("July","2026-08-01",reading1,0.10,5)
+ CREATE OBJECT gasBill1 OF GasBill("July","2026-08-01",reading1,0.15,8)
+ CREATE OBJECT account1 OF CustomerAccount("Ahmed")
+ account1.ADD_BILL(electricBill1)
+ account1.ADD_BILL(waterBill1)
+ account1.ADD_BILL(gasBill1)
+ Caccount1.SHOW_BILLS()
+
+END
+STOP
+==================================
+=========================================================
+Q 307
+=========================================================
+
+CLASS Route
+ ATTRIBUTES
+  PRIVATE waypoints : LIST<TEXT>
+
+CONSTRUCTOR()
+ SET waypoints TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_WAYPOINT(point : TEXT)
+  ADD point TO waypoints
+ END METHOD
+
+ SHOW_ROUTE()
+  FOR EACH point IN waypoints
+   DISPLAY point
+  END FOR
+ END METHOD
+END CLASS
+
+CLASS Ride
+ ATTRIBUTES
+  PRIVATE pickupLocation : TEXT
+  PRIVATE dropoffLocation : TEXT
+  PRIVATE route : Route
+
+CONSTRUCTOR(Pickup, Dropoff, RouteObj)
+ SET pickupLocation TO Pickup
+ SET dropoffLocation TO Dropoff
+ SET route TO RouteObj
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_FARE()
+  RETURN 0
+ END METHOD
+
+ SHOW_RIDE()
+  DISPLAY pickupLocation
+  DISPLAY dropoffLocation
+ END METHOD
+END CLASS
+
+CLASS StandardRide INHERITS Ride
+ ATTRIBUTES
+  PRIVATE distance : NUMBER
+  PRIVATE rate : NUMBER
+
+CONSTRUCTOR(Pickup, Dropoff, RouteObj, Distance, Rate)
+ CALL SUPER(Pickup, Dropoff, RouteObj)
+ SET distance TO Distance
+ SET rate TO Rate
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_FARE()
+  RETURN distance * rate
+ END METHOD
+END CLASS
+
+CLASS PremiumRide INHERITS Ride
+ ATTRIBUTES
+  PRIVATE distance : NUMBER
+  PRIVATE rate : NUMBER
+  PRIVATE comfortSurcharge : NUMBER
+
+CONSTRUCTOR(Pickup, Dropoff, RouteObj, Distance, Rate, Surcharge)
+ CALL SUPER(Pickup, Dropoff, RouteObj)
+ SET distance TO Distance
+ SET rate TO Rate
+ SET comfortSurcharge TO Surcharge
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_FARE()
+  RETURN (distance * rate) + comfortSurcharge
+ END METHOD
+END CLASS
+
+CLASS SharedRide INHERITS StandardRide
+ ATTRIBUTES
+  PRIVATE passengers : NUMBER
+
+CONSTRUCTOR(Pickup, Dropoff, RouteObj, Distance, Rate, Passengers)
+ CALL SUPER(Pickup, Dropoff, RouteObj, Distance, Rate)
+ SET passengers TO Passengers
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_FARE()
+  RETURN SUPER.CALCULATE_FARE() / passengers
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT route1 OF Route()
+ route1.ADD_WAYPOINT("Mall")
+ route1.ADD_WAYPOINT("Hospital")
+ route1.ADD_WAYPOINT("University")
+ CREATE OBJECT standard1 OF StandardRide("Mall","University",route1,10,0.5)
+ CREATE OBJECT premium1 OF PremiumRide("Mall","Airport",route1,15,0.8,5)
+ CREATE OBJECT shared1 OF SharedRide("Mall","University",route1,12,0.5,3)
+ DISPLAY standard1.CALCULATE_FARE()
+ DISPLAY premium1.CALCULATE_FARE()
+ DISPLAY shared1.CALCULATE_FARE()
+
+END
+STOP
+
+
+
