@@ -1,0 +1,557 @@
+=========================================================
+Q 309
+=========================================================
+
+CLASS ConditionReport
+ ATTRIBUTES
+  PRIVATE notes : TEXT
+
+CONSTRUCTOR(Notes)
+ SET notes TO Notes
+END CONSTRUCTOR
+
+METHODS
+ SHOW_REPORT()
+  DISPLAY notes
+ END METHOD
+END CLASS
+
+CLASS LoanItem
+ ATTRIBUTES
+  PRIVATE title : TEXT
+  PRIVATE barcode : TEXT
+  PRIVATE loanDuration : NUMBER
+  PRIVATE report : ConditionReport
+
+CONSTRUCTOR(Title, Barcode, Duration, ReportObj)
+ SET title TO Title
+ SET barcode TO Barcode
+ SET loanDuration TO Duration
+ SET report TO ReportObj
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_LATE_FEE(daysLate)
+  RETURN 0
+ END METHOD
+
+ CAN_RENEW()
+  RETURN TRUE
+ END METHOD
+
+ SHOW_ITEM()
+  DISPLAY title
+  DISPLAY barcode
+ END METHOD
+END CLASS
+
+CLASS StandardBook INHERITS LoanItem
+ ATTRIBUTES
+  PRIVATE feePerDay : NUMBER
+
+CONSTRUCTOR(Title, Barcode, Duration, ReportObj, Fee)
+ CALL SUPER(Title, Barcode, Duration, ReportObj)
+ SET feePerDay TO Fee
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_LATE_FEE(daysLate)
+  RETURN daysLate * feePerDay
+ END METHOD
+END CLASS
+
+CLASS ReferenceTextbook INHERITS LoanItem
+ ATTRIBUTES
+  PRIVATE feePerDay : NUMBER
+
+CONSTRUCTOR(Title, Barcode, Duration, ReportObj, Fee)
+ CALL SUPER(Title, Barcode, Duration, ReportObj)
+ SET feePerDay TO Fee
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_LATE_FEE(daysLate)
+  RETURN daysLate * feePerDay
+ END METHOD
+END CLASS
+
+CLASS JournalIssue INHERITS ReferenceTextbook
+
+CONSTRUCTOR(Title, Barcode, Duration, ReportObj, Fee)
+ CALL SUPER(Title, Barcode, Duration, ReportObj, Fee)
+END CONSTRUCTOR
+
+METHODS
+ CAN_RENEW()
+  RETURN FALSE
+ END METHOD
+END CLASS
+
+CLASS StudentAccount
+ ATTRIBUTES
+  PRIVATE studentName : TEXT
+  PRIVATE loanItems : LIST<LoanItem>
+
+CONSTRUCTOR(Name)
+ SET studentName TO Name
+ SET loanItems TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_ITEM(item : LoanItem)
+  ADD item TO loanItems
+ END METHOD
+
+ SHOW_LOANS()
+  FOR EACH item IN loanItems
+   CALL item.SHOW_ITEM()
+   DISPLAY item.CALCULATE_LATE_FEE(3)
+  END FOR
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT report1 OF ConditionReport("Good Condition")
+ CREATE OBJECT book1 OF StandardBook("Java Basics","B101",14,report1,1)
+ CREATE OBJECT refBook1 OF ReferenceTextbook("Data Structures","R201",1,report1,5)
+ CREATE OBJECT journal1 OF JournalIssue("AI Journal","J301",1,report1,5)
+ CREATE OBJECT student1 OF StudentAccount("Ahmed")
+ sudent1.ADD_ITEM(book1)
+ student1.ADD_ITEM(refBook1)
+ student1.ADD_ITEM(journal1)
+ student1.SHOW_LOANS()
+ DISPLAY journal1.CAN_RENEW()
+
+END
+STOP
+
+=========================================================
+Q 310
+=========================================================
+
+CLASS SafetyInspectionLog
+ ATTRIBUTES
+  PRIVATE inspectionDate : TEXT
+  PRIVATE result : TEXT
+
+CONSTRUCTOR(Date, Result)
+ SET inspectionDate TO Date
+ SET result TO Result
+END CONSTRUCTOR
+
+METHODS
+ SHOW_LOG()
+  DISPLAY inspectionDate
+  DISPLAY result
+ END METHOD
+END CLASS
+
+CLASS Ride
+ ATTRIBUTES
+  PRIVATE rideName : TEXT
+  PRIVATE location : TEXT
+  PRIVATE inspectionLog : SafetyInspectionLog
+
+CONSTRUCTOR(Name, Location, LogObj)
+ SET rideName TO Name
+ SET location TO Location
+ SET inspectionLog TO LogObj
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_WAIT_TIME()
+  RETURN 0
+ END METHOD
+
+ SHOW_RIDE()
+  DISPLAY rideName
+  DISPLAY location
+ END METHOD
+END CLASS
+
+CLASS RollerCoaster INHERITS Ride
+ ATTRIBUTES
+  PRIVATE peopleInLine : NUMBER
+  PRIVATE carCapacity : NUMBER
+  PRIVATE cycleTime : NUMBER
+
+CONSTRUCTOR(Name, Location, LogObj, People, Capacity, Cycle)
+ CALL SUPER(Name, Location, LogObj)
+ SET peopleInLine TO People
+ SET carCapacity TO Capacity
+ SET cycleTime TO Cycle
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_WAIT_TIME()
+  RETURN (peopleInLine / carCapacity) * cycleTime
+ END METHOD
+END CLASS
+
+CLASS WaterRide INHERITS Ride
+ ATTRIBUTES
+  PRIVATE peopleInLine : NUMBER
+  PRIVATE boatCapacity : NUMBER
+  PRIVATE cycleTime : NUMBER
+  PRIVATE loadingTime : NUMBER
+
+CONSTRUCTOR(Name, Location, LogObj, People, Capacity, Cycle, Loading)
+ CALL SUPER(Name, Location, LogObj)
+ SET peopleInLine TO People
+ SET boatCapacity TO Capacity
+ SET cycleTime TO Cycle
+ SET loadingTime TO Loading
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_WAIT_TIME()
+  RETURN (peopleInLine / boatCapacity) * (cycleTime + loadingTime)
+ END METHOD
+END CLASS
+
+CLASS VIPAccessRide INHERITS RollerCoaster
+ ATTRIBUTES
+  PRIVATE vipGuests : NUMBER
+
+CONSTRUCTOR(Name, Location, LogObj, People, Capacity, Cycle, VIP)
+ CALL SUPER(Name, Location, LogObj, People, Capacity, Cycle)
+ SET vipGuests TO VIP
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_WAIT_TIME()
+  RETURN SUPER.CALCULATE_WAIT_TIME() - vipGuests
+ END METHOD
+END CLASS
+
+
+CLASS Park
+ ATTRIBUTES
+  PRIVATE parkName : TEXT
+  PRIVATE rides : LIST<Ride>
+
+CONSTRUCTOR(Name)
+ SET parkName TO Name
+ SET rides TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_RIDE(r : Ride)
+  ADD r TO rides
+ END METHOD
+
+ SHOW_RIDES()
+  FOR EACH r IN rides
+   CALL r.SHOW_RIDE()
+   DISPLAY r.CALCULATE_WAIT_TIME()
+  END FOR
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT log1 OF SafetyInspectionLog("2026-07-20","Passed")
+ CREATE OBJECT roller1 OF RollerCoaster("Dragon","Zone A",log1,120,20,5)
+ CREATE OBJECT water1 OF WaterRide("River Splash","Zone B",log1,80,16,6,2)
+ CREATE OBJECT vip1 OF VIPAccessRide("VIP Dragon","Zone C",log1,100,20,5,15)
+ CREATE OBJECT park1 OF Park("Fun Land")
+ park1.ADD_RIDE(roller1)
+ park1.ADD_RIDE(water1)
+ park1.ADD_RIDE(vip1)
+ park1.SHOW_RIDES()
+
+END
+STOP
+=========================================================
+Q 311
+=========================================================
+
+CLASS PaymentTerms
+ ATTRIBUTES
+  PRIVATE dueDate : TEXT
+  PRIVATE interestRate : NUMBER
+
+CONSTRUCTOR(DueDate, Rate)
+ SET dueDate TO DueDate
+ SET interestRate TO Rate
+END CONSTRUCTOR
+
+METHODS
+ SHOW_TERMS()
+  DISPLAY dueDate
+  DISPLAY interestRate
+ END METHOD
+END CLASS
+
+CLASS Invoice
+ ATTRIBUTES
+  PRIVATE invoiceNumber : NUMBER
+  PRIVATE dateIssued : TEXT
+  PRIVATE clientName : TEXT
+  PRIVATE paymentTerms : PaymentTerms
+
+CONSTRUCTOR(Number, Date, Client, TermsObj)
+ SET invoiceNumber TO Number
+ SET dateIssued TO Date
+ SET clientName TO Client
+ SET paymentTerms TO TermsObj
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_TOTAL()
+  RETURN 0
+ END METHOD
+
+ SHOW_INVOICE()
+  DISPLAY invoiceNumber
+  DISPLAY clientName
+ END METHOD
+END CLASS
+
+CLASS FixedPriceInvoice INHERITS Invoice
+ ATTRIBUTES
+  PRIVATE projectFee : NUMBER
+
+CONSTRUCTOR(Number, Date, Client, TermsObj, Fee)
+ CALL SUPER(Number, Date, Client, TermsObj)
+ SET projectFee TO Fee
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_TOTAL()
+  RETURN projectFee
+ END METHOD
+END CLASS
+
+CLASS HourlyInvoice INHERITS Invoice
+ ATTRIBUTES
+  PRIVATE approvedHours : NUMBER
+  PRIVATE hourlyRate : NUMBER
+
+CONSTRUCTOR(Number, Date, Client, TermsObj, Hours, Rate)
+ CALL SUPER(Number, Date, Client, TermsObj)
+ SET approvedHours TO Hours
+ SET hourlyRate TO Rate
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_TOTAL()
+  RETURN approvedHours * hourlyRate
+ END METHOD
+END CLASS
+
+CLASS RetainerInvoice INHERITS FixedPriceInvoice
+ ATTRIBUTES
+  PRIVATE includedHours : NUMBER
+  PRIVATE extraHours : NUMBER
+  PRIVATE extraRate : NUMBER
+
+CONSTRUCTOR(Number, Date, Client, TermsObj, Fee, Included, Extra, Rate)
+ CALL SUPER(Number, Date, Client, TermsObj, Fee)
+ SET includedHours TO Included
+ SET extraHours TO Extra
+ SET extraRate TO Rate
+END CONSTRUCTOR
+
+METHODS
+ CALCULATE_TOTAL()
+  RETURN SUPER.CALCULATE_TOTAL() + (extraHours * extraRate)
+ END METHOD
+END CLASS
+
+CLASS FreelancerAccount
+ ATTRIBUTES
+  PRIVATE freelancerName : TEXT
+  PRIVATE invoices : LIST<Invoice>
+
+CONSTRUCTOR(Name)
+ SET freelancerName TO Name
+ SET invoices TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_INVOICE(inv : Invoice)
+  ADD inv TO invoices
+ END METHOD
+
+ SHOW_INVOICES()
+  FOR EACH inv IN invoices
+   CALL inv.SHOW_INVOICE()
+   DISPLAY inv.CALCULATE_TOTAL()
+  END FOR
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT terms1 OF PaymentTerms("2026-08-01",5)
+ CREATE OBJECT fixed1 OF FixedPriceInvoice(101,"2026-07-20","ABC Company",terms1,1000)
+ CREATE OBJECT hourly1 OF HourlyInvoice(102,"2026-07-20","XYZ Company",terms1,25,20)
+ CREATE OBJECT retainer1 OF RetainerInvoice(103,"2026-07-20","Tech Ltd",terms1,1500,40,10,25)
+ CREATE OBJECT account1 OF FreelancerAccount("Ahmed")
+ account1.ADD_INVOICE(fixed1)
+ account1.ADD_INVOICE(hourly1)
+ account1.ADD_INVOICE(retainer1)
+ account1.SHOW_INVOICES()
+
+END
+STOP
+
+=========================================================
+Q 312
+=========================================================
+
+CLASS TrackingHistory
+ ATTRIBUTES
+  PRIVATE locations : LIST<TEXT>
+
+CONSTRUCTOR()
+ SET locations TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_LOCATION(location : TEXT)
+  ADD location TO locations
+ END METHOD
+
+ SHOW_HISTORY()
+  FOR EACH location IN locations
+   DISPLAY location
+  END FOR
+ END METHOD
+END CLASS
+
+CLASS Shipment
+ ATTRIBUTES
+  PRIVATE trackingNumber : TEXT
+  PRIVATE sender : TEXT
+  PRIVATE receiver : TEXT
+  PRIVATE trackingHistory : TrackingHistory
+
+CONSTRUCTOR(Number, Sender, Receiver, HistoryObj)
+ SET trackingNumber TO Number
+ SET sender TO Sender
+ SET receiver TO Receiver
+ SET trackingHistory TO HistoryObj
+END CONSTRUCTOR
+
+METHODS
+ ESTIMATE_DELIVERY_TIME()
+  RETURN 0
+ END METHOD
+
+ SHOW_SHIPMENT()
+  DISPLAY trackingNumber
+  DISPLAY sender
+  DISPLAY receiver
+ END METHOD
+END CLASS
+
+CLASS DomesticShipment INHERITS Shipment
+ ATTRIBUTES
+  PRIVATE distance : NUMBER
+
+CONSTRUCTOR(Number, Sender, Receiver, HistoryObj, Distance)
+ CALL SUPER(Number, Sender, Receiver, HistoryObj)
+ SET distance TO Distance
+END CONSTRUCTOR
+
+METHODS
+ ESTIMATE_DELIVERY_TIME()
+  RETURN distance / 100
+ END METHOD
+END CLASS
+
+CLASS InternationalShipment INHERITS Shipment
+ ATTRIBUTES
+  PRIVATE distance : NUMBER
+  PRIVATE customsDelay : NUMBER
+
+CONSTRUCTOR(Number, Sender, Receiver, HistoryObj, Distance, Delay)
+ CALL SUPER(Number, Sender, Receiver, HistoryObj)
+ SET distance TO Distance
+ SET customsDelay TO Delay
+END CONSTRUCTOR
+
+METHODS
+ ESTIMATE_DELIVERY_TIME()
+  RETURN (distance / 100) + customsDelay
+ END METHOD
+END CLASS
+
+CLASS ExpressShipment INHERITS InternationalShipment
+ ATTRIBUTES
+  PRIVATE expressReduction : NUMBER
+
+CONSTRUCTOR(Number, Sender, Receiver, HistoryObj, Distance, Delay, Reduction)
+ CALL SUPER(Number, Sender, Receiver, HistoryObj, Distance, Delay)
+ SET expressReduction TO Reduction
+END CONSTRUCTOR
+
+METHODS
+ ESTIMATE_DELIVERY_TIME()
+  RETURN SUPER.ESTIMATE_DELIVERY_TIME() - expressReduction
+ END METHOD
+END CLASS
+
+CLASS LogisticsCompany
+ ATTRIBUTES
+  PRIVATE companyName : TEXT
+  PRIVATE shipments : LIST<Shipment>
+
+CONSTRUCTOR(Name)
+ SET companyName TO Name
+ SET shipments TO EMPTY LIST
+END CONSTRUCTOR
+
+METHODS
+ ADD_SHIPMENT(s : Shipment)
+  ADD s TO shipments
+ END METHOD
+
+ SHOW_SHIPMENTS()
+  FOR EACH s IN shipments
+   CALL s.SHOW_SHIPMENT()
+   DISPLAY s.ESTIMATE_DELIVERY_TIME()
+  END FOR
+ END METHOD
+END CLASS
+
+START
+BEGIN
+
+ CREATE OBJECT history1 OF TrackingHistory()
+ history1.ADD_LOCATION("Muscat")
+ history1.ADD_LOCATION("Dubai")
+ history1.ADD_LOCATION("London")
+ CREATE OBJECT domestic1 OF DomesticShipment("D100","Ali","Ahmed",history1,300)
+ CREATE OBJECT international1 OF InternationalShipment("I200","Sara","John",history1,2500,2)
+ CREATE OBJECT express1 OF ExpressShipment("E300","Omar","Lina",history1,2500,2,1)
+ CREATE OBJECT company1 OF LogisticsCompany("Fast Logistics")
+ company1.ADD_SHIPMENT(domestic1)
+ company1.ADD_SHIPMENT(international1)
+ company1.ADD_SHIPMENT(express1)
+ company1.SHOW_SHIPMENTS()
+
+END
+STOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
